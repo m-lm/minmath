@@ -33,7 +33,23 @@ a {
     padding: 10px;
 }
 
+#mid {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
 #math {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+                
+}
+
+#math-input {
     text-align: center;
     justify-content: center;
     align-items: center;
