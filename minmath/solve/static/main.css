@@ -6,12 +6,19 @@ body {
 	color: white;
 }
 
+a {
+    color: inherit;
+}
+
 #menu {
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
+}
 
+#name-header {
+    font-size: 36px;
 }
 
 #submenu {
@@ -22,6 +29,7 @@ body {
 }
 
 .menu-button {
+    text-decoration: none;
     padding: 10px;
 }
 
