@@ -47,7 +47,7 @@ a {
 }
 
 #mid {
-    display: flex;
+    display: grid;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -65,8 +65,12 @@ a {
 #math-input {
     all: unset;
     font-size: 24px;
-    width: 48px;
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+#input-status {
+    padding: 10px;
+    transition: color .5s ease-out;
 }
