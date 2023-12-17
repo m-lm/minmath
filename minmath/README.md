@@ -1,0 +1,1 @@
+# minmath is a minimalist mental math website.
