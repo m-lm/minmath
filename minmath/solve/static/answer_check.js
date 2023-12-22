@@ -1,6 +1,4 @@
-function clearInput() {
-    document.getElementById("math-input").value = "";
-}
+let score = 0;
 
 function checkAnswer(ans)  {
     // on valid (i.e., integer) input...
@@ -16,6 +14,8 @@ function checkAnswer(ans)  {
         document.getElementById("input-status").style.color = "green";
         document.getElementById("input-status").textContent = "Correct!";
         document.getElementById("math-input").value = "";
+        score++;
+        document.getElementById("score").textContent = "Score: " + score;
     }
 
     else {
