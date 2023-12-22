@@ -1,3 +1,7 @@
+function clearInput() {
+    document.getElementById("math-input").value = "";
+}
+
 function checkAnswer(ans)  {
     // on valid (i.e., integer) input...
     let current_prob = document.getElementById("math").textContent;
@@ -11,11 +15,13 @@ function checkAnswer(ans)  {
     if (ans == sum) {
         document.getElementById("input-status").style.color = "green";
         document.getElementById("input-status").textContent = "Correct!";
+        document.getElementById("math-input").value = "";
     }
 
     else {
         document.getElementById("input-status").style.color = "red";
         document.getElementById("input-status").textContent = "Incorrect!";
+        document.getElementById("math-input").value = "";
     }
 }
 
