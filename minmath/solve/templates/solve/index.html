@@ -19,14 +19,14 @@
             </div>
             <div id = "mid">
                 <div id = "math"></div>
-                <input onchange = "validate()" id = "math-input"></input>
+                <input id = "math-input"></input>
                 <div id = "input-status"></div>
                 <div id = "score"></div>
             </div>
             </div>
         </div>
     <script src = "{% static 'focus.js' %}"></script>
-    <script src = "{% static 'problem_generator.js' %}"></script>
-    <script src = "{% static 'answer_check.js' %}"></script>
+    <script type = "module" src = "{% static 'problem_generator.js' %}"></script>
+    <script type = "module" src = "{% static 'answer_check.js' %}"></script>
 	</body>
 </html>

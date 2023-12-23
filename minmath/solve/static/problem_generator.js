@@ -1,4 +1,4 @@
-function generate() {
+export function generate() {
     // const > let > var for variable declarations
     document.getElementById("math-input").value = ""; // clear input field
     let num1 = Math.floor(Math.random() * 100);

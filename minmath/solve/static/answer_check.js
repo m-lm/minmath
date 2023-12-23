@@ -1,3 +1,5 @@
+import {generate} from "./problem_generator.js";
+
 let score = 0;
 
 function checkAnswer(ans)  {
@@ -35,4 +37,7 @@ function validate() {
     else {
         checkAnswer(ans);
     }
+    generate();
 }
+
+document.querySelector("input").addEventListener("change", validate);
