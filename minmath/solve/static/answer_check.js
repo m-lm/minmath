@@ -16,6 +16,12 @@ function checkAnswer(ans)  {
         document.getElementById("input-status").style.color = "green";
         document.getElementById("input-status").textContent = "Correct!";
         document.getElementById("math-input").value = "";
+        /*
+        if ((time_elapsed / 1000) < 2.0) {
+            score += 2;
+            document.getElementById("input-status").textContent = "Correct! BONUS";
+        }
+        */
         score++;
         document.getElementById("score").textContent = "Score: " + score;
     }
