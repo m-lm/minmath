@@ -10,11 +10,11 @@
         <div id = "container">
             <div id = "intro">
             <div id = "menu">
-                <a id = "name-header" class = "menu-button" href="">minmath</a>
+                <a id = "name-header" class = "menu-button" href="">{{sitename}}</a>
                 <div id = "submenu">
                     <a id = "about" class = "menu-button" href="">about</a>
                     <a id = "leaderboards" class = "menu-button" href="{% url 'leaderboards:index' %}">leaderboards</a>
-                    <a id = "account" class = "menu-button" href="">account</a>
+                    <a id = "account" class = "menu-button" href="{% url 'account:index' %}">account</a>
                 </div>
             </div>
             <div id = "mid">
