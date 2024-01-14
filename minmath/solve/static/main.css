@@ -11,10 +11,15 @@ a {
 }
 
 #menu {
+    z-index: 999;
+    width: 50%;
+    margin: auto;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
+    border-bottom-style: inset;
+    border-width: 1px;
 }
 
 #name-header {
@@ -50,6 +55,7 @@ a {
     display: grid;
     text-align: center;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     padding: 10px;
 }
@@ -59,11 +65,14 @@ a {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    pointer-events: none;
+    user-select: none;
     font-size: 24px;
 }
 
 #math-input {
     all: unset;
+    width: 50%;
     font-size: 24px;
     text-align: center;
     justify-content: center;
@@ -77,5 +86,13 @@ a {
 
 #input-status {
     padding: 10px;
+    pointer-events: none;
+    user-select: none;
     transition: color .5s ease-out;
+}
+
+#score {
+    padding: 10px;
+    pointer-events: none;
+    user-select: none;
 }
