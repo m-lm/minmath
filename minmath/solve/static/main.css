@@ -1,9 +1,17 @@
+:root {
+    --bg: #2B3856; 
+    --txt: white;
+    --name-hov: gold;
+    --hili: silver;
+    --shadow: black;
+}
+
 body {
     display: grid;
-	background-color: #2B3856;
+	background-color: var(--bg);
 	font-family: "IBM Plex Mono Light";
 	font-size: 16px;
-	color: white;
+	color: var(--txt);
 }
 
 a {
@@ -28,7 +36,8 @@ a {
 }
 
 #name-header:hover {
-    color: gold;
+    box-shadow: inherit;
+    color: var(--name-hov);
 }
 
 #submenu {
@@ -45,11 +54,12 @@ a {
     user-select: none;
     margin: 10px;
     padding: 2px;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .menu-button:hover {
-    color: silver;
+    box-shadow: 0px 2px 0px 0px var(--hili);
+    color: var(--hili);
 }
 
 #mid {
@@ -83,7 +93,8 @@ a {
 }
 
 #math-input:focus {
-    box-shadow: 1px 1px 1px 1px black;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px var(--shadow);
 }
 
 #input-status {
