@@ -10,17 +10,19 @@
 	<body>
         <div id = "container">
             <div id = "intro">
-            <div id = "menu">
-                <a id = "name-header" class = "menu-button" href="">{{sitename}}</a>
-                <div id = "submenu">
-                    <a id = "about" class = "menu-button" href="">about</a>
-                    <a id = "leaderboards" class = "menu-button" href="{% url 'leaderboards:index' %}">leaderboards</a>
-                    <a id = "settings" class = "menu-button" href="">settings</a>
-                    <a id = "account" class = "menu-button" href="{% url 'account:index' %}">account</a>
+                <div id = "menu">
+                    <a id = "name-header" class = "menu-button" href="">minmath</a>
+                    <div id = "submenu">
+                        <a id = "about" class = "menu-button" href="">about</a>
+                        <a id = "leaderboards" class = "menu-button" href="{% url 'leaderboards:index' %}">leaderboards</a>
+                        <a id = "settings" class = "menu-button" href="">settings</a>
+                        <a id = "account" class = "menu-button" href="{% url 'account:index' %}">account</a>
+                    </div>
                 </div>
-            </div>
-            {% block content %}
-            {% endblock content %}
+                <div id = "mid">
+                {% block content %}
+                {% endblock content %}
+                </div>
             </div>
         </div>
     <script src = "{% static 'focus.js' %}"></script>
