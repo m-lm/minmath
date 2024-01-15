@@ -69,6 +69,8 @@ a {
     justify-items: center;
     align-items: center;
     padding: 10px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px black;
 }
 
 #math {
