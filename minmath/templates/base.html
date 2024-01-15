@@ -25,8 +25,7 @@
                 </div>
             </div>
         </div>
-    <script src = "{% static 'focus.js' %}"></script>
-    <script type = "module" src = "{% static 'problem_generator.js' %}"></script>
-    <script type = "module" src = "{% static 'answer_check.js' %}"></script>
+    {% block scripts %}
+    {% endblock scripts %}
 	</body>
 </html>

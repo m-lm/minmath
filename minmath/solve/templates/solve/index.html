@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div id = "math"></div>
@@ -7,3 +8,9 @@
 <div id = "input-status"></div>
 <div id = "score"></div>
 {% endblock content %}
+
+{% block scripts %}
+<script src = "{% static 'focus.js' %}"></script>
+<script type = "module" src = "{% static 'problem_generator.js' %}"></script>
+<script type = "module" src = "{% static 'answer_check.js' %}"></script>
+{% endblock scripts %}
