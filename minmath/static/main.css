@@ -4,12 +4,13 @@
     --name-hov: gold;
     --hili: silver;
     --shadow: black;
+    --font: sans-serif;
 }
 
 body {
     display: grid;
 	background-color: var(--bg);
-	font-family: sans-serif;
+	font-family: var(--font);
 	font-size: 16px;
 	color: var(--txt);
 }
@@ -49,7 +50,7 @@ a {
 }
 
 .menu-button {
-    font-family: sans-serif;
+    font-family: var(--font);
     text-decoration: none;
     user-select: none;
     margin: 10px;
@@ -100,7 +101,6 @@ a {
 }
 
 #input-status {
-    font-family: sans-serif;
     padding: 10px;
     pointer-events: none;
     user-select: none;
@@ -116,7 +116,7 @@ a {
 .acc-btn {
     height: 36px;
     width: 144px;
-    font-family: sans-serif;
+    font-family: var(--font);
     font-size: 16px;
     color: var(--txt);
     background-color: var(--bg);
