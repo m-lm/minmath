@@ -2,7 +2,11 @@
 
 {% block content %}
 <div>
-    This is the account register page.
-    {{form.as_p}}
+    <strong>Create An Account</strong>
+    <form method = "POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type = "submit" class = "acc-btn">Sign Up</button>
+    </form>
 </div>
 {% endblock content %}

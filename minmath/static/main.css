@@ -32,7 +32,7 @@ a {
 #name-header {
     font-size: 36px;
     user-select: none;
-    transition: color 0.2s ease;
+    transition: color .2s ease;
 }
 
 #name-header:hover {
@@ -54,7 +54,7 @@ a {
     user-select: none;
     margin: 10px;
     padding: 2px;
-    transition: all 0.2s ease;
+    transition: all .2s ease;
 }
 
 .menu-button:hover {
@@ -70,7 +70,7 @@ a {
     align-items: center;
     padding: 10px;
     border-radius: 4px;
-    box-shadow: 1px 1px 1px 1px black;
+    box-shadow: 1px 1px 1px 1px var(--shadow);
 }
 
 #math {
@@ -111,4 +111,24 @@ a {
     padding: 10px;
     pointer-events: none;
     user-select: none;
+}
+
+.acc-btn {
+    height: 36px;
+    width: 144px;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: var(--txt);
+    background-color: var(--bg);
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px var(--shadow);
+    outline: none;
+    transition: all .2s ease;
+}
+
+.acc-btn:hover {
+    color: var(--bg);
+    background-color: var(--hili);
 }
