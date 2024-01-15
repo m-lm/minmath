@@ -2,4 +2,4 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("This is the leaderboard index.")
+    return render(request, "leaderboards/leaderboards.html")
