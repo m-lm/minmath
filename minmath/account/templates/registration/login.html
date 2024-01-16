@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <strong>Sign In To Your Account</strong>
+    <form method = "POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type = "submit" class = "acc-btn">Sign In</button>
+        <div><a href = "/account">Create</a> an account instead.</div>
+    </form>
+</div>
+{% endblock content %}
