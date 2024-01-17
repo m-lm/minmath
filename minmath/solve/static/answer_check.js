@@ -13,16 +13,16 @@ function checkAnswer(ans)  {
         }
     }
     if (ans == sum) {
-        document.getElementById("input-status").style.color = "green";
-        document.getElementById("input-status").textContent = "Correct!";
+        document.getElementById("score").style.color = "green";
+        // document.getElementById("input-status").textContent = "Correct!";
         document.getElementById("math-input").value = "";
         score++;
         document.getElementById("score").textContent = "Score: " + score;
     }
 
     else {
-        document.getElementById("input-status").style.color = "red";
-        document.getElementById("input-status").textContent = "Incorrect!";
+        document.getElementById("score").style.color = "red";
+        // document.getElementById("input-status").textContent = "Incorrect!";
         document.getElementById("math-input").value = "";
     }
 }
@@ -31,12 +31,13 @@ function validate() {
     let ans = document.getElementById("math-input").value;
     if (isNaN(parseInt(ans))) {
         document.getElementById("math-input").value = "";
-        document.getElementById("input-status").style.color = "red";
-        document.getElementById("input-status").textContent = "Invalid input!";
+        document.getElementById("score").style.color = "red";
+        // document.getElementById("input-status").textContent = "Invalid input!";
     }
     else {
         checkAnswer(ans);
     }
+    // document.getElementById("score").style.color = "white";
     generate();
 }
 

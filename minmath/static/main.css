@@ -147,6 +147,7 @@ a {
     padding: 12px;
     pointer-events: none;
     user-select: none;
+    transition: color .2s ease;
 }
 
 .acc-btn {
