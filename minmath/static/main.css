@@ -1,5 +1,6 @@
 :root {
     --bg: #2B3856; 
+    --sheet: #242F48;
     --txt: white;
     --name-hov: gold;
     --hili: silver;
@@ -66,7 +67,7 @@ a {
 
 #mid {
     display: grid;
-    background-color: #242F48;
+    background-color: var(--sheet);
     text-align: center;
     justify-content: center;
     justify-items: center;
