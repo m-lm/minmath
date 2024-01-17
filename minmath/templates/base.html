@@ -11,12 +11,12 @@
         <div id = "container">
             <div id = "intro">
                 <div id = "menu">
-                    <a id = "name-header" class = "menu-button" href="{% url 'solve:index' %}">minmath</a>
+                    <a id = "name-header" class = "menu-button" href = "{% url 'solve:index' %}">minmath</a>
                     <div id = "submenu">
-                        <a id = "about" class = "menu-button" href="">about</a>
-                        <a id = "leaderboards" class = "menu-button" href="{% url 'leaderboards:index' %}">leaderboards</a>
-                        <a id = "settings" class = "menu-button" href="">settings</a>
-                        <a id = "account" class = "menu-button" href="{% url 'account:register' %}">account</a>
+                        <a id = "solve" class = "menu-button" href = "{% url 'solve:index' %}">solve</a>
+                        <a id = "about" class = "menu-button" href = "">about</a>
+                        <a id = "leaderboards" class = "menu-button" href = "{% url 'leaderboards:index' %}">leaderboards</a>
+                        <a id = "account" class = "menu-button" href = "{% url 'account:register' %}">account</a>
                     </div>
                 </div>
                 <div id = "mid">

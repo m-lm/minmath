@@ -5,7 +5,7 @@
     --name-hov: gold;
     --hili: silver;
     --shadow: black;
-    --font: sans-serif;
+    --font: "Inter", sans-serif;
 }
 
 body {
@@ -55,7 +55,7 @@ a {
     font-family: var(--font);
     text-decoration: none;
     user-select: none;
-    margin: 10px;
+    margin: 12px;
     padding: 2px;
     transition: all .2s ease;
 }
@@ -72,11 +72,21 @@ a {
     justify-content: center;
     justify-items: center;
     align-items: center;
-    padding: 10px;
+    padding: 12px;
     margin: auto;
     max-width: 1000px;
     border-radius: 4px;
     box-shadow: 1px 1px 1px 1px var(--shadow);
+}
+
+#session {
+    margin: 12px;
+    padding: 12px;
+}
+
+#track {
+    margin: 12px;
+    padding: 12px;
 }
 
 #math {
@@ -97,11 +107,11 @@ a {
     justify-content: center;
     align-items: center;
     user-select: none;
-    transition: all .2s ease-in;
+    border-radius: 4px;
+    transition: all .2s ease;
 }
 
 #math-input:focus {
-    border-radius: 4px;
     box-shadow: 1px 1px 1px 1px var(--shadow);
 }
 
