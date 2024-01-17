@@ -122,7 +122,7 @@ a {
 
 #math-input {
     all: unset;
-    width: 50%;
+    width: 25%;
     font-size: 24px;
     text-align: center;
     justify-content: center;
@@ -133,7 +133,7 @@ a {
 }
 
 #math-input:focus {
-    box-shadow: 1px 1px 1px 1px var(--shadow);
+    box-shadow: 0px 2px 0px 0px var(--shadow);
 }
 
 #input-status {
