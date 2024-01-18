@@ -35,7 +35,7 @@ a {
 #name-header {
     font-size: 36px;
     user-select: none;
-    transition: color .2s ease;
+    transition: color .2s ease-in;
 }
 
 #name-header:hover {
@@ -63,7 +63,6 @@ a {
 
 .menu-button:hover {
     box-shadow: 0px 2px 0px 0px var(--hili);
-    color: var(--hili);
 }
 
 #mid {
@@ -76,21 +75,22 @@ a {
     padding: 12px;
     margin: auto;
     max-width: 1000px;
-    min-height: 500px;
+    /* min-height: 500px; */
     border-radius: 4px;
-    box-shadow: 1px 1px 1px 1px var(--shadow);
+    box-shadow: var(--shadow) 1px 3px 5px;
 }
 
 #mode-bar {
     display: flex;
     background-color: var(--bg);
     border-radius: 4px;
-    box-shadow: 1px 1px 1px 1px var(--shadow);
+    box-shadow: var(--shadow) 0px 1px 3px;
 }
 
 .mode-button {
     margin: 4px;
     padding: 4px;
+    user-select: none;
     border-radius: 4px;
     cursor: pointer;
     transition: all .1s ease;
@@ -128,7 +128,6 @@ a {
     justify-content: center;
     align-items: center;
     user-select: none;
-    border-radius: 4px;
     transition: all .2s ease;
 }
 
