@@ -104,6 +104,11 @@ a {
     background-color: var(--sheet);
 }
 
+.separator {
+   cursor: none;
+   pointer-events: none; 
+}
+
 #session {
     margin: 12px;
     padding: 12px;
