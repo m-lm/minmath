@@ -1,5 +1,7 @@
 function select_mode(id) {
-    act_btn = document.getElementById(id).style.color = "var(--name-hov)";
+    act_btn = document.getElementById(id);
+    act_btn.style.color = "var(--name-hov)";
+    localStorage.setItem("mode", id);
     btn_list = document.getElementsByClassName("mode-button");
     num_btns = btn_list.length;
     for (let i = 0; i < num_btns; i++) {
@@ -8,3 +10,4 @@ function select_mode(id) {
         }
     }
 }
+window.addEventListener("load", select_mode(localStorage.getItem("mode")))
