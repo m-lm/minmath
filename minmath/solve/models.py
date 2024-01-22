@@ -16,4 +16,4 @@ class Minigame(models.Model):
     date = models.DateField(auto_now=True); # for activity records
 
     def __str__(self):
-        return (f"{self.user}'s {self.gamemode} game on {date}")
+        return (f"{self.user}'s {self.gamemode} game on {self.date}")
