@@ -88,10 +88,14 @@ a {
 }
 
 .mode-button {
+    background: none;
+    color: var(--txt);
+    font-size: 16px;
     margin: 4px;
     padding: 4px;
     user-select: none;
     border-radius: 4px;
+    border: none;
     cursor: pointer;
     transition: all .1s ease;
 }
