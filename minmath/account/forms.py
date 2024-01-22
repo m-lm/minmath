@@ -5,10 +5,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db import models
 from django import forms
 from django.contrib.auth.models import User
+from .models import PlayerUser # override from default user model
 
 class Signup(UserCreationForm):
     email = forms.EmailField()
 
     class Meta:
-        model = User
-        fields = ["email", "username", "password1", "password2"]
+        model = PlayerUser
+        fields = ("email", "username")
