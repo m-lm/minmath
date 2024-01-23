@@ -14,31 +14,26 @@ function checkAnswer(ans)  {
     }
     if (ans == sum) {
         document.getElementById("score").style.color = "green";
-        // document.getElementById("input-status").textContent = "Correct!";
         document.getElementById("math-input").value = "";
         score++;
         document.getElementById("score").textContent = "Score: " + score;
+        generate();
     }
-
     else {
-        document.getElementById("score").style.color = "red";
-        // document.getElementById("input-status").textContent = "Incorrect!";
-        document.getElementById("math-input").value = "";
+        // document.getElementById("score").style.color = "red";
     }
 }
 
 function validate() {
     let ans = document.getElementById("math-input").value;
-    if (isNaN(parseInt(ans))) {
-        document.getElementById("math-input").value = "";
-        document.getElementById("score").style.color = "red";
-        // document.getElementById("input-status").textContent = "Invalid input!";
+    if (isNaN(parseInt(ans[ans.length - 1]))) {
+        // if last char input is NaN then backtrack
+        document.getElementById("math-input").value = ans.substring(0, ans.length - 1);
+        // document.getElementById("score").style.color = "red";
     }
     else {
         checkAnswer(ans);
     }
-    // document.getElementById("score").style.color = "white";
-    generate();
 }
 
-document.querySelector("input").addEventListener("change", validate);
+document.querySelector("input").addEventListener("input", validate);
