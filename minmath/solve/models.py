@@ -8,7 +8,7 @@ class Minigame(models.Model):
     # Model for each minigame session with end score and time
     # Used for leaderboards, tied to user
     # Leaderboards: username, gamemode, score, time, total num of problems, date
-    user = models.ForeignKey(PlayerUser, on_delete=models.CASCADE) # on deletion of obj, delete those references that depend on it
+    user = models.ForeignKey(PlayerUser, on_delete=models.CASCADE) # on deletion of obj, delete those references that depend on it; one-to-many foreignkey
     gamemode = models.CharField(max_length=20)
     score = models.IntegerField()
     time_spent = models.FloatField()
