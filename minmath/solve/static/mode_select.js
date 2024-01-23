@@ -1,6 +1,6 @@
 function select_mode(id) {
     let act_btn = document.getElementById(id);
-    act_btn.style.color = "var(--name-hov)";
+    act_btn.style.color = "var(--accent)";
     localStorage.setItem("mode", id);
     let btn_list = document.getElementsByClassName("mode-button");
     let num_btns = btn_list.length;

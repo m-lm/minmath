@@ -13,7 +13,7 @@ function checkAnswer(ans)  {
         }
     }
     if (ans == sum) {
-        document.getElementById("score").style.color = "green";
+        // document.getElementById("score").style.color = "green";
         document.getElementById("math-input").value = "";
         score++;
         document.getElementById("score").textContent = "Score: " + score;

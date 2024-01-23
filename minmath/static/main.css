@@ -2,7 +2,7 @@
     --bg: #2B3856; 
     --sheet: #242F48;
     --txt: white;
-    --name-hov: gold;
+    --accent: gold;
     --hili: silver;
     --shadow: black;
     --font: "Inter", sans-serif;
@@ -40,7 +40,7 @@ a {
 
 #name-header:hover {
     box-shadow: inherit;
-    color: var(--name-hov);
+    color: var(--accent);
 }
 
 #submenu {
@@ -141,6 +141,7 @@ a {
 }
 
 #math-input:focus {
+    caret-color: var(--accent);
     box-shadow: 0px 2px 0px 0px var(--shadow);
 }
 
