@@ -201,3 +201,18 @@ a {
     color: var(--bg);
     background-color: var(--hili);
 }
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    margin: 12px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    transition: all .2s ease;
+}
+
+#footer:hover {
+    background-color: var(--hili);
+}
