@@ -2,6 +2,12 @@
 {% load static %}
 
 {% block content %}
+<div id = "about">
+    Welcome to minmath, a minimalist mental math website created by Micah McCollum.
+    <br>
+    Set your options and challenge yourself to solve as many math problems as possible.
+</div>
+
 <div id = "mode-bar">
     <div id = "add" class = "mode-button" onclick = "select_mode(this.id)">add</div>
     <div id = "sub" class = "mode-button" onclick = "select_mode(this.id)">subtract</div>
@@ -12,6 +18,7 @@
     <div id = "time" class = "mode-button" onclick = "select_mode(this.id)">timed</div>
     <div id = "streak" class = "mode-button" onclick = "select_mode(this.id)">streak</div>
 </div>
+
 <a class = "start-button" href = "{% url 'solve:game' %}">Start</a>
 {% endblock content %}
 
