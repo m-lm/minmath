@@ -111,6 +111,22 @@ a {
     background-color: var(--sheet);
 }
 
+.start-button {
+    display: flex;
+    background-color: var(--bg);
+    border-radius: 4px;
+    box-shadow: var(--shadow) 0px 1px 3px;
+    padding: 8px;
+    margin: 16px;
+    text-decoration: none;
+    user-select: none;
+    transition: all .3s ease;
+}
+
+.start-button:hover {
+    box-shadow: var(--accent) 0px 1px 5px;
+}
+
 .separator {
    cursor: none;
    pointer-events: none; 
