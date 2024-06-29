@@ -4,11 +4,11 @@ from .models import Minigame
 
 # Create your views here.
 
-def index(request):
+def landing(request):
     return render(request, "solve/landing.html")
 
 def game(request):
-    return render(request, "solve/index.html")
+    return render(request, "solve/game.html")
 
 def about(request):
     return render(request, "solve/about.html")
