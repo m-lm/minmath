@@ -15,4 +15,4 @@ def register(request):
             return redirect("/solve")
     else:
         form = Signup()
-    return render(request, "account/register.html", {"form" : form})
+    return render(request, "accounts/register.html", {"form" : form})

@@ -15,7 +15,13 @@
                     <div id = "submenu">
                         <a id = "solve" class = "menu-button" href = "{% url 'solve:landing' %}">solve</a>
                         <a id = "leaderboards" class = "menu-button" href = "{% url 'leaderboards:index' %}">leaderboards</a>
-                        <a id = "account" class = "menu-button" href = "{% url 'account:register' %}">account</a>
+                        {% block profile %}
+                        {% if user.is_authenticated %}
+                        <a id = "account" class = "menu-button" href = "{% url 'account:register' %}">Hi, {{ user.username }} </a>
+                        {% else %}
+                        <a id = "account" class = "menu-button" href = "{% url 'login' %}">login</a>
+                        {% endif %}
+                        {% endblock profile %}
                     </div>
                 </div>
                 <div id = "mid">

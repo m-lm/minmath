@@ -5,9 +5,9 @@
     <strong>Sign In To Your Account</strong>
     <form method = "POST">
         {% csrf_token %}
-        {{form.as_p}}
+        {{form}}
         <button type = "submit" class = "acc-button">Sign In</button>
-        <div><a href = "/account">Create</a> a new account.</div>
+        <div><a href = "{% url 'account:register' %}">Create</a> a new account.</div>
     </form>
 </div>
 {% endblock content %}
