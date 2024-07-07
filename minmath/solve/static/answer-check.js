@@ -1,4 +1,4 @@
-import {generate} from "./problem_generator.js";
+import {generate} from "./problem-gen.js";
 
 let score = 0;
 
