@@ -3,7 +3,11 @@
 
 {% block content %}
 <div id = "about">
+    {% if user.is_authenticated %}
+    Welcome back, {{user.username}}. Your personal record is . 
+    {% else %}
     Welcome to minmath - a minimalist mental math game.
+    {% endif %}
     Challenge yourself to solve as many problems as you can!
 </div>
 
