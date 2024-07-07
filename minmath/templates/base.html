@@ -19,7 +19,7 @@
                         <a id = "leaderboards" class = "menu-button" href = "{% url 'leaderboards:index' %}">leaderboards</a>
                         {% block profile %}
                         {% if user.is_authenticated %}
-                        <a id = "account" class = "menu-button" href = "">profile</a>
+                        <a id = "account" class = "menu-button" href = "{% url 'account:profile' %}">profile</a>
                         <form href = "{% url 'logout' %}" method="post">
                             {% csrf_token %}
                             <button class = "menu-button fbtn" type="submit">logout</button>
