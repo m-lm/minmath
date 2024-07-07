@@ -4,8 +4,8 @@ let score = 0;
 
 function checkAnswer(ans)  {
     // on valid (i.e., integer) input...
-    let current_prob = document.getElementById("math").textContent;
-    let components = current_prob.split(/\s+/); // regex split whitespace for numbers
+    let curProb = document.getElementById("math").textContent;
+    let components = curProb.split(/\s+/); // regex split whitespace for numbers
     let sum = 0;
     for (let i = 0; i < components.length; i++) {
         if (!isNaN(parseInt(components[i]))) {

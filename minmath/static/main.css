@@ -182,7 +182,7 @@ a {
     transition: color .2s ease;
 }
 
-.acc-btn {
+.acc-button {
     height: 36px;
     width: 144px;
     font-family: var(--font);
@@ -197,7 +197,7 @@ a {
     transition: all .2s ease;
 }
 
-.acc-btn:hover {
+.acc-button:hover {
     color: var(--bg);
     background-color: var(--hili);
 }

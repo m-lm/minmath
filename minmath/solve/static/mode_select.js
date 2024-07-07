@@ -1,22 +1,20 @@
 function select_mode(id) {
-    let act_btn = document.getElementById(id);
-    act_btn.style.color = "var(--accent)";
+    let mdBtn = document.getElementById(id);
+    mdBtn.style.color = "var(--accent)";
     localStorage.setItem("mode", id);
-    if (act_btn.className == "mode-button md1") {
-        let btn_list = document.getElementsByClassName("mode-button md1");
-        let num_btns = btn_list.length;
-        for (let i = 0; i < num_btns; i++) {
-            if (btn_list[i].id != id) {
-                btn_list[i].style.color = "";
+    if (mdBtn.className == "mode-button md1") {
+        let btnList = document.getElementsByClassName("mode-button md1");
+        for (let i = 0; i < btnList.length; i++) {
+            if (btnList[i].id != id) {
+                btnList[i].style.color = "";
             }
         }
     }
-    else if (act_btn.className == "mode-button md2") {
-        let btn_list = document.getElementsByClassName("mode-button md2");
-        let num_btns = btn_list.length;
-        for (let i = 0; i < num_btns; i++) {
-            if (btn_list[i].id != id) {
-                btn_list[i].style.color = "";
+    else if (mdBtn.className == "mode-button md2") {
+        let btnList = document.getElementsByClassName("mode-button md2");
+        for (let i = 0; i < btnList.length; i++) {
+            if (btnList[i].id != id) {
+                btnList[i].style.color = "";
             }
         }
     }
