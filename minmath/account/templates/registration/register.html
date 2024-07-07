@@ -11,7 +11,7 @@
         {% csrf_token %}
         {{form}}
         <button type = "submit" class = "acc-button">Sign Up</button>
-        <div><a href = "">Sign in</a> to an existing account.</div>
+        <div><a href = "{% url 'login' %}">Sign in</a> to an existing account.</div>
     </form>
 </div>
 {% endblock content %}
