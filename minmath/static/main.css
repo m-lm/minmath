@@ -201,7 +201,7 @@ a {
     font-family: var(--font);
     font-size: 16px;
     color: var(--txt);
-    background-color: var(--bg);
+    background-color: var(--sheet);
     cursor: pointer;
     border: none;
     border-radius: 4px;
@@ -241,6 +241,8 @@ button.acc-button {
 
 #login-form {
     display: grid;
+    background-color: var(--sheet);
+    border-radius: 8px;
     margin: 12px;
     padding: 12px;
     text-align: center;

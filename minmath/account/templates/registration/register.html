@@ -12,7 +12,7 @@
 {% else %}
 <div>
     <strong>Register</strong>
-    <form method = "POST" class = "login-form">
+    <form method = "POST" id = "login-form">
         {% csrf_token %}
         <span class = "form-field">
         Email
@@ -33,7 +33,7 @@
         <br>
         <button type = "submit" class = "acc-button">Sign Up</button>
         <!--<div><a href = "{% url 'login' %}">Login</a> to an existing account.</div>-->
-        <a class = "acc-button" href = "{% url 'login' %}">Login To Existing Account</a>
+        <a class = "acc-button" href = "{% url 'login' %}">Login</a>
     </form>
 </div>
 {% endif %}
