@@ -6,6 +6,9 @@ from django.db import models
 from django import forms
 from django.contrib.auth.models import User
 from .models import PlayerUser # override from default user model
+from django.contrib.auth import get_user_model
+
+PlayerUser = get_user_model()
 
 class Signup(UserCreationForm):
     email = forms.EmailField()
