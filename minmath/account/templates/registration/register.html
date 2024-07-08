@@ -5,13 +5,19 @@
 {% endblock title %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <div>
-    <strong>Create An Account</strong>
+    You are already logged in as <i>{{user.username}}</i>.
+</div>
+{% else %}
+<div>
+    <strong>Register</strong>
     <form method = "POST">
         {% csrf_token %}
         {{form}}
         <button type = "submit" class = "acc-button">Sign Up</button>
-        <div><a href = "{% url 'login' %}">Sign in</a> to an existing account.</div>
+        <div><a href = "{% url 'login' %}">Login</a> to an existing account.</div>
     </form>
 </div>
+{% endif %}
 {% endblock content %}

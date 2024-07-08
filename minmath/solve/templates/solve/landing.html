@@ -4,8 +4,8 @@
 {% block content %}
 <div id = "about">
     {% if user.is_authenticated %}
-    Welcome back, {{user.username}}! 
-    Your record is {{user.personal_best}}.
+    Welcome back, <i>{{user.username}}</i>! 
+    Your record is <i>{{user.personal_best}}</i>.
     {% else %}
     Welcome to minmath - a minimalist mental math game.
     {% endif %}
