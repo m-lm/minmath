@@ -191,8 +191,12 @@ a {
 }
 
 .acc-button {
-    height: 36px;
-    width: 144px;
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    height: 30px;
     font-family: var(--font);
     font-size: 16px;
     color: var(--txt);
@@ -200,13 +204,17 @@ a {
     cursor: pointer;
     border: none;
     border-radius: 4px;
-    box-shadow: 1px 1px 1px 1px var(--shadow);
+    /* box-shadow: 1px 1px 1px 1px var(--shadow); */
     outline: none;
-    transition: all .2s ease;
+    transition: all .15s ease;
+}
+
+a.acc-button {
+    text-decoration: none;
 }
 
 .acc-button:hover {
-    color: var(--bg);
+    color: var(--sheet);
     background-color: var(--hili);
 }
 
@@ -223,4 +231,18 @@ a {
 
 #footer:hover {
     background-color: var(--hili);
+}
+
+#login-form {
+    display: grid;
+    margin: 12px;
+    padding: 12px;
+    text-align: center;
+    justify-content: left;
+    align-items: left;
+}
+
+.form-field {
+    display: grid;
+    padding: 12px;
 }

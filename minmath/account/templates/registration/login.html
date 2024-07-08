@@ -12,11 +12,21 @@
 {% else %}
 <div>
     <strong>Login</strong>
-    <form method = "POST">
+    <form method = "POST" id = "login-form">
         {% csrf_token %}
-        {{form}}
+        <span class = "form-field">
+        Username:
+        {{form.username}}
+        </span>
+        <br>
+        <span class = "form-field">
+        Password:
+        {{form.password}}
+        </span>
+        <br>
         <button type = "submit" class = "acc-button">Sign In</button>
-        <div><a href = "{% url 'account:register' %}">Create</a> a new account.</div>
+        <!--<div><a href = "{% url 'account:register' %}">Create</a> a new account.</div>-->
+        <a class = "acc-button" href = "{% url 'account:register' %}">Register</a>
     </form>
 </div>
 {% endif %}
