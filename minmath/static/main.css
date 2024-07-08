@@ -84,8 +84,8 @@ a {
     margin: auto;
     max-width: 1000px;
     /* min-height: 500px; */
-    border-radius: 4px;
-    box-shadow: var(--shadow) 1px 3px 5px;
+    border-radius: 8px;
+    /* box-shadow: var(--shadow) 1px 3px 5px; */
 }
 
 #about {
@@ -96,8 +96,8 @@ a {
 #mode-bar {
     display: flex;
     background-color: var(--bg);
-    border-radius: 4px;
-    box-shadow: var(--shadow) 0px 1px 3px;
+    border-radius: 8px;
+    /* box-shadow: var(--shadow) 0px 1px 3px; */
     padding: 8px;
     margin: 16px;
 }
@@ -116,14 +116,15 @@ a {
 }
 
 .mode-button:hover {
-    background-color: var(--sheet);
+    color: var(--hili);
+    /* background-color: var(--sheet); */
 }
 
 .start-button {
     display: flex;
     background-color: var(--bg);
     border-radius: 4px;
-    box-shadow: var(--shadow) 0px 1px 3px;
+    /* box-shadow: var(--shadow) 0px 1px 3px; */
     padding: 8px;
     margin: 16px;
     text-decoration: none;
