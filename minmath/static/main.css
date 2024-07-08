@@ -211,6 +211,11 @@ a {
 
 a.acc-button {
     text-decoration: none;
+    padding: 4px;
+}
+
+button.acc-button {
+    padding: 4px;
 }
 
 .acc-button:hover {

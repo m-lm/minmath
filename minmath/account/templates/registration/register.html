@@ -12,11 +12,28 @@
 {% else %}
 <div>
     <strong>Register</strong>
-    <form method = "POST">
+    <form method = "POST" class = "login-form">
         {% csrf_token %}
-        {{form}}
+        <span class = "form-field">
+        Email
+        {{form.email}}
+        </span>
+        <span class = "form-field">
+        Username
+        {{form.username}}
+        </span>
+        <span class = "form-field">
+        Password
+        {{form.password1}}
+        </span>
+        <span class = "form-field">
+        Re-enter Password
+        {{form.password2}}
+        </span>
+        <br>
         <button type = "submit" class = "acc-button">Sign Up</button>
-        <div><a href = "{% url 'login' %}">Login</a> to an existing account.</div>
+        <!--<div><a href = "{% url 'login' %}">Login</a> to an existing account.</div>-->
+        <a class = "acc-button" href = "{% url 'login' %}">Login To Existing Account</a>
     </form>
 </div>
 {% endif %}
