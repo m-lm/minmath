@@ -9,7 +9,11 @@ function selectMode(id) {
     else if (mdBtn.className == "mode-button md2") {
         btnList = document.getElementsByClassName("mode-button md2");
         localStorage.setItem("mode2", id);
-        setDuration(id);
+        setDuration(id); // since 'timed' is in mode2 options, do some ui work
+    }
+    else if (mdBtn.className == "mode-button md3") {
+        btnList = document.getElementsByClassName("mode-button md3");
+        localStorage.setItem("mode3", id);
     }
     for (let i = 0; i < btnList.length; i++) {
         if (btnList[i].id != id) {
