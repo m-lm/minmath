@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.urls import reverse_lazy
 from .forms import Signup, Signin
 from django.contrib.auth.decorators import login_required
@@ -29,11 +29,14 @@ def register(request):
 
 def signin(request):
     if request.method == "POST":
-        form = Signin(request.POST) # user form inheritance
+        form = Signin(request, request.POST) # user form inheritance
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect("/")
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect("/")
     else:
         form = Signin()
     return render(request, "registration/login.html", {"form" : form})

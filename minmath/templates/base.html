@@ -22,7 +22,7 @@
                         <a id = "account" class = "menu-button" href = "{% url 'account:profile' %}">profile</a>
                         <a class = "menu-button" href = "{% url 'account:logout' %}">logout</a>
                         {% else %}
-                        <a id = "account" class = "menu-button" href = "{% url 'login' %}">login</a>
+                        <a id = "account" class = "menu-button" href = "{% url 'account:login' %}">login</a>
                         {% endif %}
                         {% endblock profile %}
                     </div>
