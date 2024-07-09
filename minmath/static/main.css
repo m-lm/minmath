@@ -264,10 +264,13 @@ button.acc-button {
     padding: 4px;
     background-color: var(--bg);
     color: var(--txt);
+    outline-width: 0px;
+    transition: outline-width .1s ease;
 }
 
 .custom-input:focus {
-    outline-offset: 5px;
+    outline-offset: 2px;
+    outline-width: 1.5px;
     outline-style: solid;
     outline-color: var(--accent);
 }

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from .forms import Signup
+from .forms import Signup, Signin
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -26,3 +26,15 @@ def register(request):
     else:
         form = Signup()
     return render(request, "registration/register.html", {"form" : form})
+
+def signin(request):
+    if request.method == "POST":
+        form = Signin(request.POST) # user form inheritance
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("/")
+    else:
+        form = Signin()
+    return render(request, "registration/login.html", {"form" : form})
+ 
