@@ -13,15 +13,34 @@
     Challenge yourself to solve as many problems as you can!
 </div>
 
-<div id = "mode-bar">
-    <div id = "add" class = "mode-button md1" onclick = "selectMode(this.id)">add</div>
-    <div id = "sub" class = "mode-button md1" onclick = "selectMode(this.id)">subtract</div>
-    <div id = "mult" class = "mode-button md1" onclick = "selectMode(this.id)">multiply</div>
-    <div id = "divd" class = "mode-button md1" onclick = "selectMode(this.id)">divide</div>
-    <div class = "mode-button separator">|</div>
-    <div id = "norm" class = "mode-button md2" onclick = "selectMode(this.id)">normal</div>
-    <div id = "time" class = "mode-button md2" onclick = "selectMode(this.id)">timed</div>
-    <div id = "streak" class = "mode-button md2" onclick = "selectMode(this.id)">streak</div>
+<div class = "mode-wrapper">
+    <div id = "first" class = "mode-bar">
+        <div id = "add" class = "mode-button md1" onclick = "selectMode(this.id)">add</div>
+        <div id = "sub" class = "mode-button md1" onclick = "selectMode(this.id)">subtract</div>
+        <div id = "mult" class = "mode-button md1" onclick = "selectMode(this.id)">multiply</div>
+        <div id = "divd" class = "mode-button md1" onclick = "selectMode(this.id)">divide</div>
+        <div class = "mode-button separator">|</div>
+        <div id = "norm" class = "mode-button md2" onclick = "selectMode(this.id)">normal</div>
+        <div id = "timed" class = "mode-button md2" onclick = "selectMode(this.id)">timed</div>
+        <div id = "streak" class = "mode-button md2" onclick = "selectMode(this.id)">streak</div>
+    </div>
+    <div id = "second">
+        <span class = "mode-bar">
+            <div class = "mode-button md3" onclick = "selectMode(this.id)">easy</div>
+            <div class = "mode-button md3" onclick = "selectMode(this.id)">medium</div>
+            <div class = "mode-button md3" onclick = "selectMode(this.id)">hard</div>
+        </span>
+        <span class = "mode-bar">
+            <div>duration:</div>
+            <select id = "duration" class = "mode-button">
+                <option value="30">30</option>
+                <option value="60">60</option>
+                <option value="90">90</option>
+                <option value="120">120</option>
+                <option hidden value="inf">∞</option>
+            </select>
+        </span>
+    </div>
 </div>
 
 <a class = "start-button" href = "{% url 'solve:game' %}">Start</a>

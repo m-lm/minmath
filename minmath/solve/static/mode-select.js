@@ -9,11 +9,29 @@ function selectMode(id) {
     else if (mdBtn.className == "mode-button md2") {
         btnList = document.getElementsByClassName("mode-button md2");
         localStorage.setItem("mode2", id);
+        setDuration(id);
     }
     for (let i = 0; i < btnList.length; i++) {
         if (btnList[i].id != id) {
             btnList[i].style.color = "";
         }
+    }
+}
+
+function setDuration(id) {
+    let dur = document.getElementById("duration");
+    if (id == "timed") {
+        dur.value = "30";
+        dur.style.pointerEvents = "inherit";
+        dur.style.appearance = "unset";
+        dur.style.boxShadow = "0px 2px 0px 0px var(--accent)";
+
+    }
+    else {
+        dur.value = "inf";
+        dur.style.pointerEvents = "none";
+        dur.style.appearance = "none";
+        dur.style.boxShadow = "none";
     }
 }
 
