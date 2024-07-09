@@ -29,7 +29,6 @@ function setDuration(id) {
         dur.style.pointerEvents = "inherit";
         dur.style.appearance = "unset";
         dur.style.boxShadow = "0px 2px 0px 0px var(--accent)";
-
     }
     else {
         dur.value = "inf";
@@ -38,6 +37,10 @@ function setDuration(id) {
         dur.style.boxShadow = "none";
     }
 }
+
+window.addEventListener("load", selectMode(localStorage.getItem("mode1")));
+window.addEventListener("load", selectMode(localStorage.getItem("mode2")));
+window.addEventListener("load", selectMode(localStorage.getItem("mode3")));
 
 // if no modes has been previously set or mode has been reset by browser
 if (localStorage.getItem("mode1") == "") {
@@ -51,7 +54,3 @@ if (localStorage.getItem("mode2") == "") {
 if (localStorage.getItem("mode3") == "") {
     localStorage.setItem("mode3", "easy");
 }
-
-window.addEventListener("load", selectMode(localStorage.getItem("mode1")));
-window.addEventListener("load", selectMode(localStorage.getItem("mode2")));
-window.addEventListener("load", selectMode(localStorage.getItem("mode3")));
