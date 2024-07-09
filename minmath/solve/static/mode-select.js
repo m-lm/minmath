@@ -39,15 +39,19 @@ function setDuration(id) {
     }
 }
 
+// if no modes has been previously set or mode has been reset by browser
 if (localStorage.getItem("mode1") == "") {
-    // if no mode has been previously set or mode has been reset by browser
     localStorage.setItem("mode1", "add");
 }
 
 if (localStorage.getItem("mode2") == "") {
-    // if no mode has been previously set or mode has been reset by browser
     localStorage.setItem("mode2", "normal");
 }
 
-window.addEventListener("load", selectMode(localStorage.getItem("mode1")))
-window.addEventListener("load", selectMode(localStorage.getItem("mode2")))
+if (localStorage.getItem("mode3") == "") {
+    localStorage.setItem("mode3", "easy");
+}
+
+window.addEventListener("load", selectMode(localStorage.getItem("mode1")));
+window.addEventListener("load", selectMode(localStorage.getItem("mode2")));
+window.addEventListener("load", selectMode(localStorage.getItem("mode3")));
