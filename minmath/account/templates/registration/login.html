@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load filters %}
 
 {% block title %}
 <title>minmath - login</title>
@@ -15,13 +16,11 @@
     <form method = "POST" id = "login-form">
         {% csrf_token %}
         <span class = "form-field">
-        Username:
-        {{form.username}}
+        {{form.username|addclass:"custom-input"}}
         </span>
         <br>
         <span class = "form-field">
-        Password:
-        {{form.password}}
+        {{form.password|addclass:"custom-input"}}
         </span>
         <br>
         <button type = "submit" class = "acc-button">Sign In</button>

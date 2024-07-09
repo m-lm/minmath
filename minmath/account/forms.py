@@ -11,8 +11,12 @@ from django.contrib.auth import get_user_model
 PlayerUser = get_user_model()
 
 class Signup(UserCreationForm):
-    email = forms.EmailField()
+    email = forms.EmailField(label="Email")
 
+    def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            for _, value in self.fields.items():
+                value.widget.attrs['placeholder'] = value.label
     class Meta:
         model = PlayerUser
         fields = ("email", "username")

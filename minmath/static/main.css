@@ -253,5 +253,21 @@ button.acc-button {
 
 .form-field {
     display: grid;
-    padding: 12px;
+    padding: 8px;
+}
+
+.custom-input {
+    border: none;
+    border-radius: 4px;
+    height: 24px;
+    margin: 4px;
+    padding: 4px;
+    background-color: var(--bg);
+    color: var(--txt);
+}
+
+.custom-input:focus {
+    outline-offset: 5px;
+    outline-style: solid;
+    outline-color: var(--accent);
 }
