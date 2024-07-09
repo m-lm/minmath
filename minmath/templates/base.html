@@ -11,7 +11,6 @@
 	</head>
 	<body>
         <div id = "container">
-            <div id = "intro">
                 <div id = "menu">
                     <a id = "name-header" class = "menu-button" href = "{% url 'solve:landing' %}">minmath</a>
                     <div id = "submenu">
@@ -27,15 +26,17 @@
                         {% endblock profile %}
                     </div>
                 </div>
-                <div id = "mid">
-                {% block content %}
-                {% endblock content %}
+                <div id = "intro">
+                    <div id = "mid">
+                    {% block content %}
+                    {% endblock content %}
+                    </div>
                 </div>
                 <a href = "https://github.com/m-lm/minmath">
                     <img src = "{% static 'github-mark.png' %}" id = "footer">
                 </a>
-            </div>
         </div>
+    <script src = "{% static 'intro.js' %}"></script>
     {% block scripts %}
     {% endblock scripts %}
 	</body>

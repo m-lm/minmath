@@ -293,3 +293,12 @@ button.acc-button {
     padding: 0px;
     transition: box-shadow .15s ease;
 }
+
+#intro {
+	opacity: .5;
+	transition: all  0.25s ease-in;
+}
+
+#intro.fadein {
+	opacity: 1;
+	}
