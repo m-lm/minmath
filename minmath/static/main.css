@@ -123,7 +123,7 @@ a {
 .start-button {
     display: flex;
     background-color: var(--sheet);
-    border-radius: 8px;
+    border-radius: 4px;
     /* box-shadow: var(--shadow) 0px 1px 3px; */
     padding: 8px;
     margin: 16px;
@@ -199,7 +199,6 @@ a {
     justify-content: center;
     align-items: center;
     margin: 4px;
-    height: 30px;
     font-family: var(--font);
     font-size: 16px;
     color: var(--txt);
