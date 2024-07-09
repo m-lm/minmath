@@ -17,6 +17,8 @@ class Signup(UserCreationForm):
             super().__init__(*args, **kwargs)
             for _, value in self.fields.items():
                 value.widget.attrs['placeholder'] = value.label
+                if value.label == "Email":
+                     value.widget.attrs['autofocus'] = ""
     class Meta:
         model = PlayerUser
         fields = ("email", "username")
