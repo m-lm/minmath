@@ -15,19 +15,20 @@
     <strong>Register</strong>
     <form method = "POST" id = "login-form">
         {% csrf_token %}
-        <span class = "form-field">
-        {{form.email|addclass:"custom-input"}}
-        </span>
-        <span class = "form-field">
-        {{form.username|addclass:"custom-input"}}
-        </span>
-        <span class = "form-field">
-        {{form.password1|addclass:"custom-input"}}
-        </span>
-        <span class = "form-field">
-        {{form.password2|addclass:"custom-input"}}
-        </span>
-        <br>
+        <div class = "field-wrapper">
+            <span class = "form-field">
+            {{form.email|addclass:"custom-input"}}
+            </span>
+            <span class = "form-field">
+            {{form.username|addclass:"custom-input"}}
+            </span>
+            <span class = "form-field">
+            {{form.password1|addclass:"custom-input"}}
+            </span>
+            <span class = "form-field">
+            {{form.password2|addclass:"custom-input"}}
+            </span>
+        </div>
         <button type = "submit" class = "acc-button" tabindex = "1">Sign Up</button>
         <a class = "acc-button" href = "{% url 'account:login' %}">Login</a>
     </form>

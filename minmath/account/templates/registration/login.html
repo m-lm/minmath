@@ -15,14 +15,14 @@
     <strong>Login</strong>
     <form method = "POST" id = "login-form">
         {% csrf_token %}
-        <span class = "form-field">
-        {{form.username|addclass:"custom-input"}}
-        </span>
-        <br>
-        <span class = "form-field">
-        {{form.password|addclass:"custom-input"}}
-        </span>
-        <br>
+        <div class = "field-wrapper">
+            <span class = "form-field">
+            {{form.username|addclass:"custom-input"}}
+            </span>
+            <span class = "form-field">
+            {{form.password|addclass:"custom-input"}}
+            </span>
+        </div>
         <button type = "submit" class = "acc-button" tabindex = "1">Sign In</button>
         <a class = "acc-button" href = "{% url 'account:register' %}">Register</a>
     </form>
