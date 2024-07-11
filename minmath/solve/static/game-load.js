@@ -1,5 +1,34 @@
+function streak() {
+    // solve within 3 seconds
+    // since as of now there is no "wrong" feedback,
+    // if you get it correct it just goes next
+    let display = document.getElementById("mode-status");
+    let count = 0;
+    let obsNode = document.getElementById("math");
+    const config = { characterData: true };
+    const grace = 3; // hard code 3 second grace period
+    display.innerHTML = "Streak: " + count;
+    let timer = setInterval(() => {
+        let time = 0;
+        const observer = new MutationObserver(mutations => {
+            for (const mutation of mutations) {
+                if (mutation.type === "characterData") {
+                    count++;
+                    console.log("npgw/i3s");
+                }
+            }
+        });
+        observer.observe(obsNode, config);
+        time++;
+        if (time >= grace) {
+            clearInterval(timer);
+        }
+        observer.disconnect();
+    }, 1000);
+}
+
 function timer() {
-    let display = document.getElementById("countdown");
+    let display = document.getElementById("mode-status");
     let time = Number(localStorage.getItem("duration"));
     display.innerHTML = "Time: " + time;
     let timer = setInterval(() => {
@@ -14,5 +43,14 @@ function timer() {
     }, 1000);
 }
 
+
 document.getElementById("math-input").focus();
-document.addEventListener("load", timer());
+
+
+if (localStorage.getItem("mode2") == "streak") {
+    document.addEventListener("load", streak());
+}
+
+if (localStorage.getItem("mode2") == "timed") {
+    document.addEventListener("load", timer());
+}
