@@ -43,9 +43,7 @@ function timer() {
     }, 1000);
 }
 
-
 document.getElementById("math-input").focus();
-
 
 if (localStorage.getItem("mode2") == "streak") {
     document.addEventListener("load", streak());
