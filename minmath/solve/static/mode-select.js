@@ -22,10 +22,14 @@ function selectMode(id) {
     }
 }
 
+function selectTime(t) {
+    localStorage.setItem("duration", t);
+}
+
 function setDuration(id) {
     let dur = document.getElementById("duration");
     if (id == "timed") {
-        dur.value = "30";
+        dur.value = localStorage.getItem("duration");
         dur.style.pointerEvents = "inherit";
         dur.style.appearance = "unset";
         dur.style.boxShadow = "0px 2px 0px 0px var(--accent)";
