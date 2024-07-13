@@ -302,3 +302,10 @@ button.acc-button {
 #intro.fadein {
 	opacity: 1;
 	}
+
+#progress-bar {
+    height: 2px;
+    width: 100%;
+    background-color: var(--accent);
+    transition: width 0.15s ease;
+}

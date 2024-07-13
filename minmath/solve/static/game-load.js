@@ -31,13 +31,18 @@ function streak() {
 
 function timer() {
     let display = document.getElementById("mode-status");
+    let prog = document.getElementById("progress-bar");
     let time = Number(localStorage.getItem("duration"));
+    const rate = 100 / time;
+    let width = 0;
     display.innerHTML = "Time: " + time;
     let timer = setInterval(() => {
         // CARE: weird 1 second delay, so offset by 1; also adjust end condition as needed
         // need to double-check for backend data consistency/veracity
         display.innerHTML = "Time: " + (time - 1); 
         time--;
+        width += rate;
+        prog.style.width = (100 - width) + "%";
         if (time < 1) {
             clearInterval(timer);
             console.log("Game Finished");
