@@ -1,3 +1,4 @@
+/*
 function streak() {
     // solve within 3 seconds
     // since as of now there is no "wrong" feedback,
@@ -26,6 +27,7 @@ function streak() {
         observer.disconnect();
     }, 1000);
 }
+*/
 
 function timer() {
     let display = document.getElementById("mode-status");
@@ -44,10 +46,6 @@ function timer() {
 }
 
 document.getElementById("math-input").focus();
-
-if (localStorage.getItem("mode2") == "streak") {
-    document.addEventListener("load", streak());
-}
 
 if (localStorage.getItem("mode2") == "timed") {
     document.addEventListener("load", timer());
