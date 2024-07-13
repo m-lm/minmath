@@ -45,7 +45,13 @@ function timer() {
     }, 1000);
 }
 
+function zen() {
+    document.getElementById("submenu").style.display = "none";
+    document.getElementById("menu").style.justifyContent = "center";
+}
+
 document.getElementById("math-input").focus();
+document.addEventListener("load", zen());
 
 if (localStorage.getItem("mode2") == "timed") {
     document.addEventListener("load", timer());
