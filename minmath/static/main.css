@@ -176,7 +176,7 @@ a {
 
 #math-input:focus {
     caret-color: var(--accent);
-    box-shadow: 0px 2px 0px 0px var(--shadow);
+    /* box-shadow: 0px 2px 0px 0px var(--shadow); */
 }
 
 #input-status {
@@ -305,8 +305,9 @@ button.acc-button {
 
 #progress-bar {
     visibility: hidden;
+    border-radius: 4px;
     height: 1px;
     width: 100%;
     background-color: var(--accent);
-    transition: width 0.15s ease;
+    transition: width .25s ease-in-out;
 }
