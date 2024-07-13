@@ -305,7 +305,7 @@ button.acc-button {
 
 #progress-bar {
     visibility: hidden;
-    height: 2px;
+    height: 1px;
     width: 100%;
     background-color: var(--accent);
     transition: width 0.15s ease;
