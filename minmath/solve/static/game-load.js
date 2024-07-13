@@ -36,6 +36,7 @@ function timer() {
     const rate = 100 / time;
     let width = 0;
     display.innerHTML = "Time: " + time;
+    prog.style.visibility = "visible";
     let timer = setInterval(() => {
         // CARE: weird 1 second delay, so offset by 1; also adjust end condition as needed
         // need to double-check for backend data consistency/veracity
@@ -45,7 +46,7 @@ function timer() {
         prog.style.width = (100 - width) + "%";
         if (time < 1) {
             clearInterval(timer);
-            console.log("Game Finished");
+            prog.style.width = 0 + "%"; // force clear when time's up
         }
     }, 1000);
 }
