@@ -4,7 +4,7 @@ function timer() {
     display.innerHTML = "Time: " + time;
     let timer = setInterval(() => {
         // CARE: weird 1 second delay, so offset by 1; also adjust end condition as needed
-        // need to double-check for backend data consistency/veracity
+        // double-check for backend
         display.innerHTML = "Time: " + (time - 1); 
         time--;
         if (time < 1) {
@@ -29,13 +29,13 @@ function progBar() {
     }, 100);
 }
 
-function zen() {
+function gameView() {
     document.getElementById("submenu").style.display = "none";
     document.getElementById("menu").style.justifyContent = "center";
 }
 
 document.getElementById("math-input").focus();
-document.addEventListener("load", zen());
+document.addEventListener("load", gameView());
 
 if (localStorage.getItem("mode2") == "timed") {
     document.addEventListener("load", timer());
