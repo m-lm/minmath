@@ -1,7 +1,16 @@
 function selectMode(id) {
     let mdBtn = document.getElementById(id);
     let btnList;
-    mdBtn.style.color = "var(--accent)";
+
+    // Toggle-like mechanism
+    if (mdBtn.style.color == "var(--accent)") {
+        mdBtn.style.color = "var(--txt)";
+    }
+    else {
+        mdBtn.style.color = "var(--accent)";
+    }
+
+    // Separate mode user interaction
     if (mdBtn.className == "mode-button md1") {
         btnList = document.getElementsByClassName("mode-button md1");
         localStorage.setItem("mode1", id);
@@ -15,8 +24,10 @@ function selectMode(id) {
         btnList = document.getElementsByClassName("mode-button md3");
         localStorage.setItem("mode3", id);
     }
+
+    // Except for operand selection, settings are exclusive
     for (let i = 0; i < btnList.length; i++) {
-        if (btnList[i].id != id) {
+        if (btnList[i].id != id && btnList[i].className != "mode-button md1") {
             btnList[i].style.color = "";
         }
     }
@@ -47,14 +58,14 @@ window.addEventListener("load", selectMode(localStorage.getItem("mode2")));
 window.addEventListener("load", selectMode(localStorage.getItem("mode3")));
 
 // if no modes has been previously set or mode has been reset by browser
-if (localStorage.getItem("mode1") == "") {
+if (localStorage.getItem("mode1") == null) {
     localStorage.setItem("mode1", "add");
 }
 
-if (localStorage.getItem("mode2") == "") {
+if (localStorage.getItem("mode2") == null) {
     localStorage.setItem("mode2", "timed");
 }
 
-if (localStorage.getItem("mode3") == "") {
+if (localStorage.getItem("mode3") == null) {
     localStorage.setItem("mode3", "easy");
 }
