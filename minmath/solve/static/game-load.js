@@ -1,4 +1,5 @@
 function timer() {
+    // Timer display for timed mode
     let display = document.getElementById("mode-status");
     let time = Number(localStorage.getItem("duration"));
     display.innerHTML = "Time: " + time;
@@ -14,6 +15,7 @@ function timer() {
 }
 
 function progBar() {
+    // Progress bar for timed mode
     let prog = document.getElementById("progress-bar");
     const time = Number(localStorage.getItem("duration"));
     const rate = 10 / time;
@@ -30,10 +32,12 @@ function progBar() {
 }
 
 function gameView() {
+    // Declutter menu bar
     document.getElementById("submenu").style.display = "none";
     document.getElementById("menu").style.justifyContent = "center";
 }
 
+// Load on game start
 document.getElementById("math-input").focus();
 document.addEventListener("load", gameView());
 

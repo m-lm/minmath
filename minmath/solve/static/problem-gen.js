@@ -1,6 +1,6 @@
 function generate() {
-    // const > let > var for variable declarations
-    document.getElementById("math-input").value = ""; // clear input field
+    // Display the math problem
+    document.getElementById("math-input").value = "";
     let num1 = Math.floor(Math.random() * 100);
     let num2 = Math.floor(Math.random() * 100);
     let curMode = localStorage.getItem("mode1");

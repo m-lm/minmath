@@ -38,6 +38,7 @@ function selectTime(t) {
 }
 
 function setDuration(id) {
+    // Prettify duration setting dropdown
     let dur = document.getElementById("duration");
     if (id == "timed") {
         dur.value = localStorage.getItem("duration");
@@ -53,6 +54,7 @@ function setDuration(id) {
     }
 }
 
+// Load local browser settings
 window.addEventListener("load", selectMode(localStorage.getItem("mode1")));
 window.addEventListener("load", selectMode(localStorage.getItem("mode2")));
 window.addEventListener("load", selectMode(localStorage.getItem("mode3")));
