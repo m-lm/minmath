@@ -1,34 +1,28 @@
 function selectMode(id) {
     let mdBtn = document.getElementById(id);
-    let btnList;
+    let btnList = document.getElementsByClassName(mdBtn.className);
 
     // Toggle-like mechanism
-    if (mdBtn.style.color == "var(--accent)") {
+    if (mdBtn.style.color == "var(--accent)" && mdBtn.className == "mode-button md1") {
+        // Turn off
         mdBtn.style.color = "var(--txt)";
     }
     else {
+        // Turn on
+        if (mdBtn.className == "mode-button md1") {
+            localStorage.setItem("mode1", id);
+        }
+        else if (mdBtn.className == "mode-button md2") {
+            localStorage.setItem("mode2", id);
+            setDuration(id); 
+        }
         mdBtn.style.color = "var(--accent)";
-    }
-
-    // Separate mode user interaction
-    if (mdBtn.className == "mode-button md1") {
-        btnList = document.getElementsByClassName("mode-button md1");
-        localStorage.setItem("mode1", id);
-    }
-    else if (mdBtn.className == "mode-button md2") {
-        btnList = document.getElementsByClassName("mode-button md2");
-        localStorage.setItem("mode2", id);
-        setDuration(id); // since 'timed' is in mode2 options, do some ui work
-    }
-    else if (mdBtn.className == "mode-button md3") {
-        btnList = document.getElementsByClassName("mode-button md3");
-        localStorage.setItem("mode3", id);
     }
 
     // Except for operand selection, settings are exclusive
     for (let i = 0; i < btnList.length; i++) {
         if (btnList[i].id != id && btnList[i].className != "mode-button md1") {
-            btnList[i].style.color = "";
+            btnList[i].style.color = "var(--txt)";
         }
     }
 }
@@ -57,7 +51,6 @@ function setDuration(id) {
 // Load local browser settings
 window.addEventListener("load", selectMode(localStorage.getItem("mode1")));
 window.addEventListener("load", selectMode(localStorage.getItem("mode2")));
-window.addEventListener("load", selectMode(localStorage.getItem("mode3")));
 
 // if no modes has been previously set or mode has been reset by browser
 if (localStorage.getItem("mode1") == null) {
@@ -66,8 +59,4 @@ if (localStorage.getItem("mode1") == null) {
 
 if (localStorage.getItem("mode2") == null) {
     localStorage.setItem("mode2", "timed");
-}
-
-if (localStorage.getItem("mode3") == null) {
-    localStorage.setItem("mode3", "easy");
 }
