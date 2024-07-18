@@ -52,7 +52,7 @@ if (localStorage.getItem("mode1") == "") {
 }
 
 if (localStorage.getItem("mode2") == "") {
-    localStorage.setItem("mode2", "normal");
+    localStorage.setItem("mode2", "timed");
 }
 
 if (localStorage.getItem("mode3") == "") {
