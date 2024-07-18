@@ -1,9 +1,9 @@
 :root {
     --bg: #2B3856; 
     --sheet: #242F48;
-    --txt: white;
-    --accent: gold;
-    --hili: silver;
+    --txt: #ffffff;
+    --accent: #ffd700;
+    --hili: #c0c0c0;
     --font: "Inter", sans-serif;
 }
 
