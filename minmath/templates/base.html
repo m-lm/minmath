@@ -22,14 +22,14 @@
                         </a>
                         {% block profile %}
                         {% if user.is_authenticated %}
-                        <a id = "account" class = "menu-button" href = "{% url 'account:profile' %}">
+                        <a id = "account" class = "menu-button logx-button" href = "{% url 'account:profile' %}">
                             <img class = "icon" src = "{% static 'icons/account.svg' %}">
                         </a>
-                        <a class = "menu-button" href = "{% url 'account:logout' %}">
+                        <a class = "menu-button logx-button" href = "{% url 'account:logout' %}">
                             <img class = "icon" src = "{% static 'icons/logout.svg' %}">
                         </a>
                         {% else %}
-                        <a id = "account" class = "menu-button" href = "{% url 'account:login' %}">
+                        <a class = "menu-button logx-button" href = "{% url 'account:login' %}">
                             <img class = "icon" src = "{% static 'icons/login.svg' %}">
                         </a>
                         {% endif %}

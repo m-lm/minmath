@@ -52,14 +52,19 @@ a {
 }
 
 .menu-button {
+    display: flex;
     font-family: var(--font);
     text-decoration: none;
     user-select: none;
     margin: 12px;
     padding: 0px;
-    height: 40px;
+    height: 50%;
     border-radius: 4px;
     transition: all .15s ease;
+}
+
+.logx-button {
+    justify-content: right;
 }
 
 #mid {
