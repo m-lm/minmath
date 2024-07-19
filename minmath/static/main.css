@@ -57,6 +57,7 @@ a {
     user-select: none;
     margin: 12px;
     padding: 2px;
+    border-radius: 4px;
     transition: all .15s ease;
 }
 
@@ -103,13 +104,13 @@ a {
     padding: 4px;
     user-select: none;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all .15s ease;
+    transition: color .15s ease;
 }
 
 .mode-button:hover {
     color: var(--hili);
-    /* background-color: var(--sheet); */
 }
 
 .start-button {
@@ -177,6 +178,7 @@ a {
     justify-content: center;
     align-items: center;
     user-select: none;
+    padding: 8px;
     transition: all .15s ease;
 }
 
@@ -316,4 +318,8 @@ button.acc-button {
     opacity: .75;
     background-color: var(--accent);
     transition: width .25s ease;
+}
+
+.active {
+    color: var(--accent);
 }

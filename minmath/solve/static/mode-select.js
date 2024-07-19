@@ -1,28 +1,26 @@
 function selectMode(id) {
     let mdBtn = document.getElementById(id);
     let btnList = document.getElementsByClassName(mdBtn.className);
-
     // Toggle-like mechanism
-    if (mdBtn.style.color == "var(--accent)" && mdBtn.className == "mode-button md1") {
+    if (mdBtn.classList.contains("active") && mdBtn.classList.contains("md1")) {
         // Turn off
-        mdBtn.style.color = "var(--txt)";
+        mdBtn.classList.remove("active");
     }
     else {
         // Turn on
-        if (mdBtn.className == "mode-button md1") {
+        if (mdBtn.classList.contains("md1")) {
             localStorage.setItem("mode1", id);
         }
-        else if (mdBtn.className == "mode-button md2") {
+        else if (mdBtn.classList.contains("md2")) {
             localStorage.setItem("mode2", id);
             setDuration(id); 
         }
-        mdBtn.style.color = "var(--accent)";
+        mdBtn.classList.add("active");
     }
-
     // Except for operand selection, settings are exclusive
     for (let i = 0; i < btnList.length; i++) {
-        if (btnList[i].id != id && btnList[i].className != "mode-button md1") {
-            btnList[i].style.color = "var(--txt)";
+        if (btnList[i].id != id && !btnList[i].classList.contains("md1")) {
+            btnList[i].classList.remove("active");
         }
     }
 }
