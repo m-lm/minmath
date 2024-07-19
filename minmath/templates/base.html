@@ -14,14 +14,24 @@
                 <div id = "menu">
                     <a id = "name-header" class = "menu-button" href = "{% url 'solve:landing' %}">minmath</a>
                     <div id = "submenu">
-                        <a id = "solve" class = "menu-button" href = "{% url 'solve:landing' %}">play</a>
-                        <a id = "leaderboards" class = "menu-button" href = "{% url 'leaderboards:index' %}">leaderboards</a>
+                        <a id = "solve" class = "menu-button" href = "{% url 'solve:landing' %}">
+                            <img class = "icon" src = "{% static 'icons/joystick.svg' %}">
+                        </a>
+                        <a id = "leaderboards" class = "menu-button" href = "{% url 'leaderboards:index' %}">
+                            <img class = "icon" src = "{% static 'icons/leaderboard.svg' %}">
+                        </a>
                         {% block profile %}
                         {% if user.is_authenticated %}
-                        <a id = "account" class = "menu-button" href = "{% url 'account:profile' %}">profile</a>
-                        <a class = "menu-button" href = "{% url 'account:logout' %}">logout</a>
+                        <a id = "account" class = "menu-button" href = "{% url 'account:profile' %}">
+                            <img class = "icon" src = "{% static 'icons/account.svg' %}">
+                        </a>
+                        <a class = "menu-button" href = "{% url 'account:logout' %}">
+                            <img class = "icon" src = "{% static 'icons/logout.svg' %}">
+                        </a>
                         {% else %}
-                        <a id = "account" class = "menu-button" href = "{% url 'account:login' %}">login</a>
+                        <a id = "account" class = "menu-button" href = "{% url 'account:login' %}">
+                            <img class = "icon" src = "{% static 'icons/login.svg' %}">
+                        </a>
                         {% endif %}
                         {% endblock profile %}
                     </div>
@@ -33,7 +43,7 @@
                     </div>
                 </div>
                 <a href = "https://github.com/m-lm/minmath">
-                    <img src = "{% static 'github-mark.png' %}" id = "footer">
+                    <img src = "{% static 'icons/github-mark.png' %}" id = "footer">
                 </a>
         </div>
     <script src = "{% static 'intro.js' %}"></script>
