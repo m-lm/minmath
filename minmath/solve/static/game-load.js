@@ -1,12 +1,17 @@
+const startTime = new Date().getTime();
+
 function timer() {
     // Timer display for timed mode
     let display = document.getElementById("mode-status");
     let time = Number(localStorage.getItem("duration"));
     display.innerHTML = "Time: " + time;
+    // let testb = 0;
     let timer = setInterval(() => {
         // CARE: weird 1 second delay, so offset by 1; also adjust end condition as needed
         // double-check for backend
         display.innerHTML = "Time: " + (time - 1); 
+        // testb++;
+        // console.log("sec_timer (focused): ", testb);
         time--;
         if (time < 1) {
             clearInterval(timer);
@@ -20,9 +25,14 @@ function progBar() {
     const time = Number(localStorage.getItem("duration"));
     const rate = 10 / time;
     let width = 0;
+    // let testb = 0;
     prog.style.visibility = "visible";
     let bar = setInterval(() => {
-        width += rate;
+        let timeLapsed = new Date().getTime() - startTime; // Use this if user tab switches to update bar
+        // width += rate;
+        width = rate * (timeLapsed / 100 - 2); // Math.floor slightly more agreeable but choppier
+        // testb++;
+        // console.log("width: ", width, "sec_bar (focused): ", testb/10);
         prog.style.width = (100 - width) + "%";
         if (width >= 100) {
             clearInterval(bar);
