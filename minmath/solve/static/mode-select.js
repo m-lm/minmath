@@ -1,3 +1,14 @@
+function checkEmpty() {
+    // Returns true if not empty
+    let btnList = document.getElementsByClassName("md1");
+    for (let i = 0; i < btnList.length; i++) {
+        if (btnList[i].classList.contains("active")) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function selectMode(id) {
     let mdBtn = document.getElementById(id);
     let btnList = document.getElementsByClassName(mdBtn.className);
@@ -22,6 +33,10 @@ function selectMode(id) {
         if (btnList[i].id != id && !btnList[i].classList.contains("md1")) {
             btnList[i].classList.remove("active");
         }
+    }
+    // Prevent deactivation if last active operand setting
+    if (!checkEmpty()) {
+        mdBtn.classList.add("active");
     }
 }
 
