@@ -108,10 +108,11 @@ a {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: color .15s ease;
+    transition: opacity .15s ease;
 }
 
 .mode-button:hover {
+    opacity: .75;
     color: var(--hili);
 }
 
