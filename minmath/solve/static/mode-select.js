@@ -95,7 +95,14 @@ function setOperations() {
     // Set placeholder if inputs are empty
     for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].value == "") {
-            inputs[i].placeholder = "0";
+            switch(i % 2) {
+                case 0:
+                    inputs[i].placeholder = "0";
+                    break;
+                case 1:
+                    inputs[i].placeholder = "100";
+                    break;
+            }
         }
     }
     let opBounds = inputs.map((elem) => elem.value);
