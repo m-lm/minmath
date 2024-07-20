@@ -91,16 +91,18 @@ function setDuration(id) {
 
 function setOperations() {
     // Get the localStorage of user-chosen operation settings
+    const initLow = 0;
+    const initHigh = 100;
     let inputs = Array.from(document.getElementsByClassName("range"));
     // Set placeholder if inputs are empty
     for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].value == "") {
             switch(i % 2) {
                 case 0:
-                    inputs[i].placeholder = "0";
+                    inputs[i].placeholder = initLow;
                     break;
                 case 1:
-                    inputs[i].placeholder = "100";
+                    inputs[i].placeholder = initHigh;
                     break;
             }
         }
