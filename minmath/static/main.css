@@ -339,3 +339,19 @@ button.acc-button {
     transform: translateY(-0.5px);
     filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(60deg) brightness(100%) contrast(100%);
 }
+
+::placeholder {
+    font-family: var(--font);
+}
+
+:-ms-input-placeholder {
+    font-family: var(--font);
+}
+
+::-moz-placeholder {
+    font-family: var(--font);
+}
+
+::-webkit-input-placeholder {
+    font-family: var(--font);
+}
