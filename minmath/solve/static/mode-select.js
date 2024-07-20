@@ -89,6 +89,19 @@ function setDuration(id) {
     }
 }
 
+function setOperations() {
+    // Get the localStorage of user-chosen operation settings
+    let inputs = Array.from(document.getElementsByClassName("range"));
+    // Set placeholder if inputs are empty
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value == "") {
+            inputs[i].placeholder = "0";
+        }
+    }
+    let opBounds = inputs.map((elem) => elem.value);
+    // console.log(opBounds);
+}
+
 // if no modes has been previously set or mode has been reset by browser
 if (localStorage.getItem("mode1") == null) {
     const initOps = JSON.stringify(Array.from(new Set(["add"])));
@@ -99,6 +112,10 @@ if (localStorage.getItem("mode2") == null) {
     localStorage.setItem("mode2", "timed");
 }
 
+if (localStorage.getItem("bounds") == null) {
+}
+
 // Load local browser settings
 window.addEventListener("load", modeParse(localStorage.getItem("mode1")));
 window.addEventListener("load", modeParse(localStorage.getItem("mode2")));
+window.addEventListener("load", setOperations());
