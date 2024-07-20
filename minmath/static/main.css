@@ -4,7 +4,7 @@
     --txt: #ffffff;
     --accent: #ffd700;
     --hili: #c0c0c0;
-    --font: "Inter", sans-serif;
+    --font: "Roboto Mono", "Inter", sans-serif;
 }
 
 body {
@@ -101,6 +101,7 @@ a {
 .mode-button {
     background: none;
     color: var(--txt);
+    font-family: var(--font);
     font-size: 16px;
     margin: 4px;
     padding: 4px;
