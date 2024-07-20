@@ -1,4 +1,4 @@
-import {generate} from "./problem-gen.js";
+import {generateProblem} from "./problem-gen.js";
 
 let score = 0;
 
@@ -17,7 +17,7 @@ function checkAnswer(ans)  {
         document.getElementById("math-input").value = "";
         score++;
         document.getElementById("score").textContent = "Score: " + score;
-        generate();
+        generateProblem();
     }
 }
 
