@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 from account.models import PlayerUser
 
 # Create your models here.
@@ -9,7 +10,7 @@ class Minigame(models.Model):
     # Used for leaderboards, tied to user
     # Leaderboards: username, gamemode, score, time, total num of problems, date
     user = models.ForeignKey(PlayerUser, on_delete=models.CASCADE) # on deletion of obj, delete those references that depend on it; one-to-many foreignkey
-    gamemode1 = models.CharField(max_length=20)
+    gamemode1 = ArrayField(models.CharField(max_length=20), size=4)
     gamemode2 = models.CharField(max_length=20, default=None)
     score = models.IntegerField()
     time_spent = models.FloatField()
