@@ -9,6 +9,14 @@ function checkEmpty() {
     return false;
 }
 
+function updOperations(id, del = false) {
+    // Update operations for mode 1 in particular, void return
+    let newOps = new Set(JSON.parse(localStorage.getItem("mode1")));
+    del ? newOps.delete(id) : newOps.add(id); // if del is true, delete id, else add it
+    newOps = JSON.stringify(Array.from(newOps));
+    localStorage.setItem("mode1", newOps);
+}
+
 function modeParse(id) {
     // Parse incoming id argument to validate format
     // Then pass into selectMode as string
@@ -28,43 +36,33 @@ function selectMode(id) {
     // given id argument should always be string
     let mdBtn = document.getElementById(id);
     let btnList = document.getElementsByClassName(mdBtn.className);
-    let newOps;
     // Toggle-like mechanism
     if (mdBtn.classList.contains("active") && mdBtn.classList.contains("md1")) {
         // Turn off
-        newOps = new Set(JSON.parse(localStorage.getItem("mode1")));
-        newOps.delete(id);
-        newOps = JSON.stringify(Array.from(newOps));
-        localStorage.setItem("mode1", newOps);
+        updOperations(id, true);
         mdBtn.classList.remove("active");
         // Prevent deactivation if last active operand setting
         if (!checkEmpty()) {
             mdBtn.classList.add("active");
-            newOps = new Set(JSON.parse(localStorage.getItem("mode1")));
-            newOps.add(id);
-            newOps = JSON.stringify(Array.from(newOps));
-            localStorage.setItem("mode1", newOps);
+            updOperations(id);
         }
     }
     else {
         // Turn on
         if (mdBtn.classList.contains("md1")) {
-            newOps = new Set(JSON.parse(localStorage.getItem("mode1")));
-            newOps.add(id);
-            newOps = JSON.stringify(Array.from(newOps));
-            localStorage.setItem("mode1", newOps);
+            updOperations(id);
         }
         else if (mdBtn.classList.contains("md2")) {
             localStorage.setItem("mode2", id);
             setDuration(id); 
+            for (let i = 0; i < btnList.length; i++) {
+                // Deactivate other settings
+                if (btnList[i].id != id) {
+                    btnList[i].classList.remove("active");
+                }
+            }
         }
         mdBtn.classList.add("active");
-    }
-    // Except for operand selection, settings are exclusive
-    for (let i = 0; i < btnList.length; i++) {
-        if (btnList[i].id != id && !btnList[i].classList.contains("md1")) {
-            btnList[i].classList.remove("active");
-        }
     }
 }
 
