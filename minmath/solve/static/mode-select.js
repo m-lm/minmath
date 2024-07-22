@@ -87,27 +87,23 @@ function setDuration(id) {
     }
 }
 
-function setOperations() {
-    // Get the localStorage of user-chosen operation settings
+function setPlaceholders() {
     const initLow = 0;
     const initHigh = 100;
-    let inputs = Array.from(document.getElementsByClassName("range"));
+    inputs = Array.from(document.getElementsByClassName("range"));
     // Set placeholder if inputs are empty
     for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i].value == "") {
-            switch(i % 2) {
-                case 0:
-                    inputs[i].placeholder = initLow;
-                    break;
-                case 1:
-                    inputs[i].placeholder = initHigh;
-                    break;
-            }
+        switch(i % 2) {
+            case 0:
+                inputs[i].placeholder = initLow;
+                break;
+            case 1:
+                inputs[i].placeholder = initHigh;
+                break;
         }
     }
-    let opBounds = inputs.map((elem) => elem.value);
-    // console.log(opBounds);
 }
+
 
 // if no modes has been previously set or mode has been reset by browser
 if (localStorage.getItem("mode1") == null) {
@@ -125,4 +121,4 @@ if (localStorage.getItem("bounds") == null) {
 // Load local browser settings
 window.addEventListener("load", modeParse(localStorage.getItem("mode1")));
 window.addEventListener("load", modeParse(localStorage.getItem("mode2")));
-window.addEventListener("load", setOperations());
+window.addEventListener("load", setPlaceholders());
