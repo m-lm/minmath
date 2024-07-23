@@ -8,7 +8,6 @@ function timer() {
     // let testb = 0;
     let timer = setInterval(() => {
         // CARE: weird 1 second delay, so offset by 1; also adjust end condition as needed
-        // double-check for backend
         display.innerHTML = "Time: " + (time - 1); 
         // testb++;
         // console.log("sec_timer (focused): ", testb);
@@ -23,14 +22,14 @@ function progBar() {
     // Progress bar for timed mode
     let prog = document.getElementById("progress-bar");
     const time = Number(localStorage.getItem("duration"));
-    const rate = 10 / time;
+    const rate = 100 / time;
     let width = 0;
     // let testb = 0;
     prog.style.visibility = "visible";
     let bar = setInterval(() => {
         let timeLapsed = new Date().getTime() - startTime; // Use this if user tab switches to update bar
-        // width += rate;
-        width = rate * (timeLapsed / 100 - 2); // Math.floor slightly more agreeable but choppier
+        // width += rate; where r=10/t
+        width = rate * (timeLapsed / 1000);
         // testb++;
         // console.log("width: ", width, "sec_bar (focused): ", testb/10);
         prog.style.width = (100 - width) + "%";
