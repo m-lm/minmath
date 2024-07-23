@@ -125,13 +125,10 @@ if (localStorage.getItem("mode2") == null) {
     localStorage.setItem("mode2", "timed");
 }
 
-if (localStorage.getItem("bounds") == null) {
-}
-
 // Load local browser settings
 window.addEventListener("load", modeParse(localStorage.getItem("mode1")));
 window.addEventListener("load", modeParse(localStorage.getItem("mode2")));
-window.addEventListener("load", setPlaceholders());
+window.addEventListener("load", setPlaceholders);
 
 // Store range inputs only on game start
 document.querySelector(".start-button").addEventListener("click", setRanges);
