@@ -2,7 +2,7 @@ import {generateProblem} from "./problem-gen.js";
 
 let score = 0;
 
-function checkInput() {
+function getSoln() {
     // Validate player's input answer and return true answer
     let components = document.getElementById("math").textContent.split(/\s+/); // regex split whitespace for numbers
     let sum = 0;
@@ -16,7 +16,7 @@ function checkInput() {
 
 function validateAnswer() {
     let playerAns = document.getElementById("math-input").value;
-    let correctAns = checkInput(playerAns);
+    let correctAns = getSoln();
     if (playerAns == correctAns) {
         document.getElementById("math-input").value = "";
         score++;
