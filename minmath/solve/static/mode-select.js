@@ -110,9 +110,14 @@ function setRanges() {
     // Store ranges for problem generation during game
     let inputs = Array.from(document.getElementsByClassName("range"));
     let opBounds = inputs.map((e) => e.value); // Array of strings
+    // Account for NaN values, such as empty values
+    for (let i = 0; i < opBounds.length; i++) {
+        if (opBounds[i] == "") {
+            opBounds[i] = "0";
+        }
+    }
     opBounds = JSON.stringify(Array.from(opBounds));
     localStorage.setItem("bounds", opBounds)
-    console.log(opBounds);
 }
 
 // If no modes has been previously set or mode has been reset by browser

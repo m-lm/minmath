@@ -33,6 +33,10 @@ for (let i = 0; i < inputElements.length; i++) {
                     e.target.value = "0";
                 }
             }
+            // Hardcap upperbound
+            if (e.target.value > 999) {
+                e.target.value = "999";
+            }
         }
     })
 }
