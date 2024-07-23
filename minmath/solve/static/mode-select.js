@@ -90,7 +90,7 @@ function setDuration(id) {
 function setPlaceholders() {
     const initLow = 0;
     const initHigh = 100;
-    inputs = Array.from(document.getElementsByClassName("range"));
+    let inputs = Array.from(document.getElementsByClassName("range"));
     // Set placeholder if inputs are empty
     for (let i = 0; i < inputs.length; i++) {
         switch(i % 2) {
@@ -103,7 +103,6 @@ function setPlaceholders() {
         }
     }
 }
-
 
 // if no modes has been previously set or mode has been reset by browser
 if (localStorage.getItem("mode1") == null) {

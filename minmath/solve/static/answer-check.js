@@ -6,7 +6,7 @@ function checkInput(ans) {
     // Prevent weird input; also return Number type sum
     if (isNaN(parseInt(ans[ans.length - 1]))) {
         // if last char input is NaN then backtrack
-        document.getElementById("math-input").value = ans.substring(0, ans.length - 1);
+        document.getElementById("math-input").value = ans.substring(0, ans.length - 1); // copied value assigned to mutable value from element directly
     }
      // Check that player input is valid (i.e., integer) input
     let curProblem = document.getElementById("math").textContent;
@@ -22,7 +22,7 @@ function checkInput(ans) {
 
 function validateAnswer() {
     let playerAns = document.getElementById("math-input").value;
-    let correctAns = checkInput(ans);
+    let correctAns = checkInput(playerAns);
     if (playerAns == correctAns) {
         document.getElementById("math-input").value = "";
         score++;
