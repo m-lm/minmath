@@ -8,10 +8,28 @@ function setRanges() {
 function generateProblem() {
     // Display the math problem
     document.getElementById("math-input").value = "";
-    let num1 = Math.floor(Math.random() * 100);
-    let num2 = Math.floor(Math.random() * 100);
-    let curMode;
-    let mathProblem = num1 + " + " + num2;
+    let symbols = {
+        "add": " + ",
+        "sub": " - ",
+        "mult": " x ",
+        "divd": " ÷ ",
+    }
+    let curModes = JSON.parse(localStorage.getItem("mode1"));
+    let chosen = curModes[curModes.length * Math.random() | 0];
+    let nums = [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)];
+    let mathProblem;
+    if (chosen == "sub") {
+        mathProblem = Math.max.apply(Math, nums) + symbols[chosen] + Math.min.apply(Math, nums);
+    }
+    else if (chosen == "divd") {
+        while (Math.max.apply(Math, nums) % Math.min.apply(Math, nums) != 0) {
+            nums = [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)];
+        }
+        mathProblem = Math.max.apply(Math, nums) + symbols[chosen] + Math.min.apply(Math, nums);
+    }
+    else {
+        mathProblem = nums[0] + symbols[chosen] + nums[1];
+    }
     document.getElementById("math").textContent = mathProblem;
 }
 
