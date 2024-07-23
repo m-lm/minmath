@@ -3,12 +3,12 @@ function generateNums() {
     let ranges = JSON.parse(localStorage.getItem("bounds"));
     ranges = ranges.map(e => parseInt(e));
     let range1 = ranges.slice(0, 2);
-    let max1 = Math.max.apply(Math, range1);
-    let min1 = Math.min.apply(Math, range1);
+    let max1 = Math.floor(Math.max.apply(Math, range1));
+    let min1 = Math.ceil(Math.min.apply(Math, range1));
     let range2 = ranges.slice(2, 4);
-    let max2 = Math.max.apply(Math, range2);
-    let min2 = Math.min.apply(Math, range2);
-    let nums = [Math.floor(Math.random() * (max1 - min1) + min1), Math.floor(Math.random() * (max2 - min2) + min2)];
+    let max2 = Math.floor(Math.max.apply(Math, range2));
+    let min2 = Math.ceil(Math.min.apply(Math, range2));
+    let nums = [Math.floor(Math.random() * (max1 - min1 + 1) + min1), Math.floor(Math.random() * (max2 - min2 + 1) + min2)];
     return nums;
 }
 

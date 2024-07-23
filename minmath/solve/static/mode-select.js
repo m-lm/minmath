@@ -134,4 +134,4 @@ window.addEventListener("load", modeParse(localStorage.getItem("mode2")));
 window.addEventListener("load", setPlaceholders());
 
 // Store range inputs only on game start
-document.querySelector(".start-button").addEventListener("click", setRanges());
+document.querySelector(".start-button").addEventListener("click", setRanges);
