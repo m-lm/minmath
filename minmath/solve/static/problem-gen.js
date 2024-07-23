@@ -1,8 +1,15 @@
-function setRanges() {
-    // Get the localStorage of user-chosen operation settings
-    let ops = JSON.parse(localStorage.getItem("mode1"));
-    let opBounds = inputs.map((elem) => elem.value); // strings
-    console.log(opBounds);
+function generateNums() {
+    // Generate nums given stored operand ranges
+    let ranges = JSON.parse(localStorage.getItem("bounds"));
+    ranges = ranges.map(e => parseInt(e));
+    let range1 = ranges.slice(0, 2);
+    let max1 = Math.max.apply(Math, range1);
+    let min1 = Math.min.apply(Math, range1);
+    let range2 = ranges.slice(2, 4);
+    let max2 = Math.max.apply(Math, range2);
+    let min2 = Math.min.apply(Math, range2);
+    let nums = [Math.floor(Math.random() * (max1 - min1) + min1), Math.floor(Math.random() * (max2 - min2) + min2)];
+    return nums;
 }
 
 function generateProblem() {
@@ -16,7 +23,7 @@ function generateProblem() {
     }
     let curModes = JSON.parse(localStorage.getItem("mode1")); // get modes set
     let chosenMode = curModes[curModes.length * Math.random() | 0]; // randomize mode for problem
-    let nums = [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)]; // random numbers for problem
+    let nums = generateNums();
     let mathProblem;
     // Depending on mode chosen, make sure answers are nonnegative integers
     if (chosenMode == "sub") {
@@ -24,7 +31,7 @@ function generateProblem() {
     }
     else if (chosenMode == "divd") {
         while (Math.max.apply(Math, nums) % Math.min.apply(Math, nums) != 0) {
-            nums = [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)];
+            nums = generateNums();
         }
         mathProblem = Math.max.apply(Math, nums) + symbols[chosenMode] + Math.min.apply(Math, nums);
     }

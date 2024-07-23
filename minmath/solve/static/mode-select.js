@@ -33,7 +33,7 @@ function modeParse(id) {
 }
 
 function selectMode(id) {
-    // given id argument should always be string
+    // Given id argument should always be string
     let mdBtn = document.getElementById(id);
     let btnList = document.getElementsByClassName(mdBtn.className);
     // Toggle-like mechanism
@@ -88,23 +88,34 @@ function setDuration(id) {
 }
 
 function setPlaceholders() {
+    // Set placeholders and default values if inputs are empty
     const initLow = 0;
     const initHigh = 100;
     let inputs = Array.from(document.getElementsByClassName("range"));
-    // Set placeholder if inputs are empty
     for (let i = 0; i < inputs.length; i++) {
         switch(i % 2) {
             case 0:
                 inputs[i].placeholder = initLow;
+                inputs[i].setAttribute("value", initLow);
                 break;
             case 1:
                 inputs[i].placeholder = initHigh;
+                inputs[i].setAttribute("value", initHigh);
                 break;
         }
     }
 }
 
-// if no modes has been previously set or mode has been reset by browser
+function setRanges() {
+    // Store ranges for problem generation during game
+    let inputs = Array.from(document.getElementsByClassName("range"));
+    let opBounds = inputs.map((e) => e.value); // Array of strings
+    opBounds = JSON.stringify(Array.from(opBounds));
+    localStorage.setItem("bounds", opBounds)
+    console.log(opBounds);
+}
+
+// If no modes has been previously set or mode has been reset by browser
 if (localStorage.getItem("mode1") == null) {
     const initOps = JSON.stringify(Array.from(new Set(["add"])));
     localStorage.setItem("mode1", initOps);
@@ -121,3 +132,6 @@ if (localStorage.getItem("bounds") == null) {
 window.addEventListener("load", modeParse(localStorage.getItem("mode1")));
 window.addEventListener("load", modeParse(localStorage.getItem("mode2")));
 window.addEventListener("load", setPlaceholders());
+
+// Store range inputs only on game start
+document.querySelector(".start-button").addEventListener("click", setRanges());
