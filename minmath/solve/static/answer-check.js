@@ -2,15 +2,9 @@ import {generateProblem} from "./problem-gen.js";
 
 let score = 0;
 
-function checkInput(ans) {
-    // Prevent weird input; also return Number type sum
-    if (isNaN(parseInt(ans[ans.length - 1]))) {
-        // if last char input is NaN then backtrack
-        document.getElementById("math-input").value = ans.substring(0, ans.length - 1); // copied value assigned to mutable value from element directly
-    }
-     // Check that player input is valid (i.e., integer) input
-    let curProblem = document.getElementById("math").textContent;
-    let components = curProblem.split(/\s+/); // regex split whitespace for numbers
+function checkInput() {
+    // Validate player's input answer and return true answer
+    let components = document.getElementById("math").textContent.split(/\s+/); // regex split whitespace for numbers
     let sum = 0;
     for (let i = 0; i < components.length; i++) {
         if (!isNaN(parseInt(components[i]))) {
