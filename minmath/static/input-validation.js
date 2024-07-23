@@ -1,6 +1,7 @@
 const inputElements = document.querySelectorAll("input");
 
 for (let i = 0; i < inputElements.length; i++) {
+    // Prevent pasting/dragging/etc
     inputElements[i].setAttribute("onPaste", "return false");
     inputElements[i].setAttribute("onDragStart", "return false");
     inputElements[i].setAttribute("onDrag", "return false");
@@ -10,9 +11,9 @@ for (let i = 0; i < inputElements.length; i++) {
     inputElements[i].addEventListener("input", (e) => {
         let v = e.target.value;
         for (let j = 0; j < v.length; j++) {
+            // If char is not an integer, remove it by index and keep caret position
             if (isNaN(parseInt(v[j]))) {
-                let newVal = v.slice(0, j) + v.slice(j + 1);
-                e.target.value = newVal;
+                e.target.value = v.slice(0, j) + v.slice(j + 1);
                 e.target.selectionStart = e.target.selectionEnd = j;
             }
         }
