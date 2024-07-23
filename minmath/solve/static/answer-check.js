@@ -5,13 +5,23 @@ let score = 0;
 function getSoln() {
     // Validate player's input answer and return true answer
     let components = document.getElementById("math").textContent.split(/\s+/); // regex split whitespace for numbers
-    let sum = 0;
-    for (let i = 0; i < components.length; i++) {
-        if (!isNaN(parseInt(components[i]))) {
-            sum += parseInt(components[i]);
-        }
+    let operation = components[1]; // operation sign
+    let ans = parseInt(components[0]); // first number
+    // Operate on second number accordingly
+    if (operation == "+") {
+        ans += parseInt(components[2]);
     }
-    return sum;
+    else if (operation == "-") {
+        ans -= parseInt(components[2]);
+    }
+    else if (operation == "x") {
+        ans *= parseInt(components[2]);
+    }
+    else if (operation == "÷") {
+        ans /= parseInt(components[2]);
+    }
+    // if (!isNaN(parseInt(components[i]))) {}
+    return ans;
 }
 
 function validateAnswer() {

@@ -14,21 +14,22 @@ function generateProblem() {
         "mult": " x ",
         "divd": " ÷ ",
     }
-    let curModes = JSON.parse(localStorage.getItem("mode1"));
-    let chosen = curModes[curModes.length * Math.random() | 0];
-    let nums = [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)];
+    let curModes = JSON.parse(localStorage.getItem("mode1")); // get modes set
+    let chosenMode = curModes[curModes.length * Math.random() | 0]; // randomize mode for problem
+    let nums = [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)]; // random numbers for problem
     let mathProblem;
-    if (chosen == "sub") {
-        mathProblem = Math.max.apply(Math, nums) + symbols[chosen] + Math.min.apply(Math, nums);
+    // Depending on mode chosen, make sure answers are nonnegative integers
+    if (chosenMode == "sub") {
+        mathProblem = Math.max.apply(Math, nums) + symbols[chosenMode] + Math.min.apply(Math, nums);
     }
-    else if (chosen == "divd") {
+    else if (chosenMode == "divd") {
         while (Math.max.apply(Math, nums) % Math.min.apply(Math, nums) != 0) {
             nums = [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)];
         }
-        mathProblem = Math.max.apply(Math, nums) + symbols[chosen] + Math.min.apply(Math, nums);
+        mathProblem = Math.max.apply(Math, nums) + symbols[chosenMode] + Math.min.apply(Math, nums);
     }
     else {
-        mathProblem = nums[0] + symbols[chosen] + nums[1];
+        mathProblem = nums[0] + symbols[chosenMode] + nums[1];
     }
     document.getElementById("math").textContent = mathProblem;
 }
