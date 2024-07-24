@@ -20,6 +20,9 @@
                         <a id = "leaderboards" class = "menu-button" href = "{% url 'leaderboards:index' %}">
                             <img class = "icon" src = "{% static 'icons/leaderboard.svg' %}">
                         </a>
+                        <a id = "info" class = "menu-button" href = "{% url 'solve:info' %}">
+                            <img class = "icon" src = "{% static 'icons/info.svg' %}">
+                        </a>
                         {% block profile %}
                         {% if user.is_authenticated %}
                         <a id = "account" class = "menu-button logx-button" href = "{% url 'account:profile' %}">

@@ -10,5 +10,5 @@ def landing(request):
 def game(request):
     return render(request, "solve/game.html")
 
-def about(request):
-    return render(request, "solve/about.html")
+def info(request):
+    return render(request, "solve/info.html")

@@ -80,7 +80,7 @@ a {
     border-radius: 8px;
 }
 
-#about {
+.about {
     word-break: normal;
     inline-size: 500px;
 }

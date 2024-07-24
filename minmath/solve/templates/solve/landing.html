@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div id = "about">
+<div class = "about">
     {% if user.is_authenticated %}
     Welcome back, {{user.username}}! 
     Your record is {{user.personal_best}}.
