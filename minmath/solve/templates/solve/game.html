@@ -12,13 +12,13 @@
         <input id = "math-input" tabindex = "1"/>
         <div id = "track">
             <div id = "input-status"></div>
-            <div id = "score">Score: 0</div>
-            <div id = "mode-status"></div>
+            <div id = "score" class = "gameinfo">Score: 0</div>
+            <div id = "mode-status" class = "gameinfo"></div>
         </div>
         <div id = "progress-bar"></div>
     </div>
     <div id = "results" class = "gamebox hide">
-        <div id = "performance"></div>
+        <div id = "performance" class = "gameinfo"></div>
         <a id = "restart" class = "menu-button" aria-label = "retry" href = "{% url 'solve:game' %}">
             <img class = "icon" src = "{% static 'icons/restartalt.svg' %}">
         </a>

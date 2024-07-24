@@ -197,11 +197,14 @@ a {
     transition: color .5s ease-out;
 }
 
-#score {
+#restart {
     padding: 12px;
-    pointer-events: none;
+}
+
+.gameinfo {
+    padding: 12px;
     user-select: none;
-    transition: color .15s ease;
+    pointer-events: none;
 }
 
 .acc-button {
@@ -331,6 +334,8 @@ button.acc-button {
 
 .hide {
     opacity: 0;
+    pointer-events: none;
+    user-select: none;
     transition: opacity .25s ease;
 }
 
@@ -366,14 +371,3 @@ button.acc-button {
 ::-webkit-input-placeholder {
     font-family: var(--font);
 }
-
-/*
-a[aria-label]:hover::after {
-    content: attr(aria-label);
-    position: absolute;
-    color: var(--txt);
-    border-radius: 8px;
-    border-color: var(--hili);
-    transition: all .95s ease;
-}
-    */
