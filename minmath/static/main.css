@@ -151,7 +151,8 @@ a {
    pointer-events: none; 
 }
 
-#session {
+.gamebox {
+    position: absolute;
     margin: 12px;
     padding: 12px;
     background-color: var(--sheet);
@@ -323,6 +324,16 @@ button.acc-button {
     transition: width .25s ease;
 }
 
+#display-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.hide {
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
 .active {
     color: var(--accent);
 }
@@ -355,3 +366,14 @@ button.acc-button {
 ::-webkit-input-placeholder {
     font-family: var(--font);
 }
+
+/*
+a[aria-label]:hover::after {
+    content: attr(aria-label);
+    position: absolute;
+    color: var(--txt);
+    border-radius: 8px;
+    border-color: var(--hili);
+    transition: all .95s ease;
+}
+    */

@@ -14,6 +14,7 @@ function timer() {
         time--;
         if (time < 1) {
             clearInterval(timer);
+            gameEnd();
         }
     }, 1000);
 }
@@ -38,6 +39,14 @@ function progBar() {
             prog.style.width = 0 + "%"; // force clear when time's up
         }
     }, 100);
+}
+
+function gameEnd() {
+    // Switch to results after game
+    document.getElementById("performance").textContent = document.getElementById("score").textContent;
+    document.getElementById("session").classList.add("hide");
+    document.getElementById("results").classList.remove("hide");
+
 }
 
 function gameView() {
