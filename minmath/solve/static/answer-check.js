@@ -20,14 +20,13 @@ function getSoln() {
     else if (operation == "÷") {
         ans /= parseInt(components[2]);
     }
-    // if (!isNaN(parseInt(components[i]))) {}
     return ans;
 }
 
 function validateAnswer() {
-    let playerAns = document.getElementById("math-input").value;
+    let playerAns = parseInt(document.getElementById("math-input").value);
     let correctAns = getSoln();
-    if (playerAns == correctAns) {
+    if (playerAns === correctAns) { // "" == 0 is true? gonna use TypeScript after this project...
         document.getElementById("math-input").value = "";
         score++;
         document.getElementById("score").textContent = "Score: " + score;

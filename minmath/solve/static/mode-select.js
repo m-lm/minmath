@@ -109,13 +109,8 @@ function setPlaceholders() {
 function setRanges() {
     // Store ranges for problem generation during game
     let inputs = Array.from(document.getElementsByClassName("range"));
-    let opBounds = inputs.map((e) => e.value); // Array of strings
     // Account for NaN values, such as empty values
-    for (let i = 0; i < opBounds.length; i++) {
-        if (opBounds[i] == "") {
-            opBounds[i] = "0";
-        }
-    }
+    let opBounds = inputs.map((e) => e.value != "" ? e.value : e.placeholder); // Array of strings
     opBounds = JSON.stringify(Array.from(opBounds));
     localStorage.setItem("bounds", opBounds)
 }
