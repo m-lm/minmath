@@ -8,17 +8,21 @@ function getSoln() {
     let operation = components[1]; // operation sign
     let ans = parseInt(components[0]); // first number
     // Operate on second number accordingly
-    if (operation == "+") {
-        ans += parseInt(components[2]);
-    }
-    else if (operation == "-") {
-        ans -= parseInt(components[2]);
-    }
-    else if (operation == "x") {
-        ans *= parseInt(components[2]);
-    }
-    else if (operation == "÷") {
-        ans /= parseInt(components[2]);
+    switch (operation) {
+        case "+":
+            ans += parseInt(components[2]);
+            break;
+        case "-":
+            ans -= parseInt(components[2]);
+            break;
+        case "x":
+            ans *= parseInt(components[2]);
+            break;
+        case "÷":
+            ans /= parseInt(components[2]);
+            break;
+        default:
+            console.log("switch error");
     }
     return ans;
 }
