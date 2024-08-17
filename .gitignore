@@ -1,5 +1,6 @@
 **/.DS_Store
 *.json
+.zed
 todo.txt
 
 # Byte-compiled / optimized / DLL files
