@@ -13,9 +13,8 @@ class Minigame(models.Model):
     gamemode1 = ArrayField(models.CharField(max_length=20), size=4)
     gamemode2 = models.CharField(max_length=20, default=None)
     score = models.IntegerField()
-    time_spent = models.FloatField()
-    total_problems = models.IntegerField()
+    timemode = models.IntegerField()
     date = models.DateField(auto_now=True); # for activity records
 
     def __str__(self):
-        return (f"{self.user}'s {self.gamemode} game on {self.date}")
+        return (f"{self.user}'s {self.score}-score game on {self.date}")
