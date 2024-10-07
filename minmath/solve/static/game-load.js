@@ -43,10 +43,10 @@ function progBar() {
 
 function gameEnd() {
     // Switch to results after game
-    document.getElementById("performance").textContent = document.getElementById("score").textContent = document.getElementById("score-submission").value;
+    let separator = document.getElementById("score").textContent.indexOf(":") + 2; // Remove 'Score: ' from text string
+    document.getElementById("score-submission").value = document.getElementById("score").textContent.slice(separator);
+    document.getElementById("time-submission").value = localStorage.getItem("duration");
     document.getElementById("score-form").submit();
-    document.getElementById("session").classList.add("hide");
-    document.getElementById("results").classList.remove("hide");
 }
 
 function gameView() {

@@ -17,16 +17,12 @@
         </div>
         <div id = "progress-bar"></div>
     </div>
-    <div id = "results" class = "gamebox hide">
-        <div id = "performance" class = "gameinfo"></div>
-        <a id = "restart" class = "menu-button" aria-label = "retry" href = "{% url 'solve:game' %}">
-            <img class = "icon" src = "{% static 'icons/restartalt.svg' %}">
-        </a>
-        <form id = "score-form" method = "post" action = "{% url 'solve:submit_score' %}">
-            {% csrf_token %}
-            <input type = "hidden" id = "score-submission" name = "playerScore" value = "0">
-        </form>
-    </div> 
+    <form id = "score-form" method = "post" action = "{% url 'solve:submit_score' %}">
+        {% csrf_token %}
+        <input type = "hidden" id = "time-submission" name = "time_duration" value = "0">
+        <input type = "hidden" id = "score-submission" name = "score" value = "0">
+    </form>
+    
 </div>
 {% endblock content %}
 

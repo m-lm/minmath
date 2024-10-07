@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>minmath - results</title>
+{% endblock title %}
+
+{% block content %}
+<div id = "results" class = "gamebox">
+    <div id = "performance" class = "gameinfo">Score: {{score}}</div>
+    <a id = "restart" class = "menu-button" aria-label = "retry" href = "{% url 'solve:game' %}">
+        <img class = "icon" src = "{% static 'icons/restartalt.svg' %}">
+    </a>
+</div> 
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

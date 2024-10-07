@@ -152,7 +152,6 @@ a {
 }
 
 .gamebox {
-    position: absolute;
     margin: 12px;
     padding: 12px;
     background-color: var(--sheet);
@@ -306,7 +305,6 @@ button.acc-button {
 
 #duration {
     text-align: center;
-    padding: 0px;
     transition: box-shadow .15s ease;
 }
 

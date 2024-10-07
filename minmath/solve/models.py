@@ -15,4 +15,4 @@ class Minigame(models.Model):
     date = models.DateField(auto_now=True); # for activity records
 
     def __str__(self):
-        return (f"{self.user}'s {self.score}-score game on {self.date}")
+        return (f"{self.user}'s {self.score}-score {self.time_duration}-second game on {self.date}")
