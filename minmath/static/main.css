@@ -367,6 +367,15 @@ button.acc-button {
 
 #board {
     background-color: var(--sheet);
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.rankings {
+    margin: 8px;
+    padding: 8px;
 }
 
 li {

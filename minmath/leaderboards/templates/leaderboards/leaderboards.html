@@ -7,9 +7,18 @@
 {% block content %}
 <div class = "about">
     <div id = "board">
-        {% for j in games %}
-        <li>{{ j.user }} -- {{ j.score }}  -- {{ j.time_duration }}s</li>
-        {% endfor %}
+        <div class = "rankings">
+            <h3>Highest Scores</h3>
+            {% for g in highest_games %}
+            <li>{{ g.user }} -- {{ g.score }} -- {{ g.time_duration }}s</li>
+            {% endfor %}
+        </div>
+        <div class = "rankings">
+            <h3>Fastest Scores</h3>
+            {% for g in fastest_games %}
+            <li>{{ g.user }} -- {{ g.score }} -- {{ g.time_duration }}s</li>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock content %}

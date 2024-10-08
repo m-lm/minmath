@@ -7,6 +7,8 @@ from .forms import Signup, Signin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from solve.models import Minigame
+from django.db.models import F, FloatField
+from django.db.models.functions import Cast
 
 # Create your views here.
 
@@ -15,15 +17,12 @@ def profile(request):
     total_games = Minigame.objects.count()
     total_problems = Minigame.objects.aggregate(total=Sum("score"))["total"]
     total_problems = 0 if None else total_problems
-    highest_score = Minigame.objects.order_by("-score").first().score
-    time_of_highest_score = Minigame.objects.order_by("-score").first().time_duration
-    fastest_score = highest_score
-    time_of_fastest_score = time_of_highest_score
-    # Get fastest score by looking at score per time
-    for obj in Minigame.objects.order_by("-score"):
-        if int(obj.score) / int(obj.time_duration) > int(highest_score) / int(time_of_highest_score):
-            fastest_score = obj.score
-            time_of_fastest_score = obj.time_duration
+    highest_game = Minigame.objects.order_by("-score").first() 
+    highest_score = highest_game.score
+    time_of_highest_score = highest_game.time_duration
+    fastest_game = Minigame.objects.annotate(speed=Cast(F("score"), FloatField()) / Cast(F("time_duration"), FloatField())).order_by("-speed").first()
+    fastest_score = fastest_game.score
+    time_of_fastest_score = fastest_game.time_duration
     data = {"total_games": total_games,
             "total_problems": total_problems, 
             "highest_score": highest_score,
