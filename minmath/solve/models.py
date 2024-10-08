@@ -12,7 +12,7 @@ class Minigame(models.Model):
     user = models.ForeignKey(PlayerUser, on_delete=models.CASCADE) # on deletion of obj, delete those references that depend on it; one-to-many foreignkey
     score = models.IntegerField()
     time_duration = models.IntegerField()
-    date = models.DateField(auto_now=True); # for activity records
+    date = models.DateTimeField(auto_now=True); # for activity records
 
     def __str__(self):
         return (f"{self.user}'s {self.score}-score {self.time_duration}-second game on {self.date}")
