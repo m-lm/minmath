@@ -5,7 +5,6 @@
 <div class = "about">
     {% if user.is_authenticated %}
     Welcome back, {{user.username}}! 
-    Your record is {{user.personal_best}}.
     {% else %}
     Welcome to minmath - a minimalist mental math game.
     {% endif %}
