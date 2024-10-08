@@ -5,12 +5,32 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.urls import reverse_lazy
 from .forms import Signup, Signin
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
+from solve.models import Minigame
 
 # Create your views here.
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
-    return render(request, "account/profile.html")
+    total_games = Minigame.objects.count()
+    total_problems = Minigame.objects.aggregate(total=Sum("score"))["total"]
+    total_problems = 0 if None else total_problems
+    highest_score = Minigame.objects.order_by("-score").first().score
+    time_of_highest_score = Minigame.objects.order_by("-score").first().time_duration
+    fastest_score = highest_score
+    time_of_fastest_score = time_of_highest_score
+    # Get fastest score by looking at score per time
+    for obj in Minigame.objects.order_by("-score"):
+        if int(obj.score) / int(obj.time_duration) > int(highest_score) / int(time_of_highest_score):
+            fastest_score = obj.score
+            time_of_fastest_score = obj.time_duration
+    data = {"total_games": total_games,
+            "total_problems": total_problems, 
+            "highest_score": highest_score,
+            "time_of_highest_score": time_of_highest_score,
+            "fastest_score": fastest_score,
+            "time_of_fastest_score": time_of_fastest_score,}
+    return render(request, "account/profile.html", data)
 
 def logout_view(request):
     logout(request)

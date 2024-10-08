@@ -6,9 +6,20 @@
 
 {% block content %}
 <div>
-    This is your profile, {{user.username}}.
+    <h3>{{user.username}}'s Statistics</h3>
     <br>
-    You can customize your experience and view your stats.
+    Games Played: {{total_games}}
+    <br>
+    Problems Solved: {{total_problems}}
+    <br>
+    Highest Score: {{highest_score}} in {{time_of_highest_score}}s
+    <br>
+    Fastest Score: {{fastest_score}} in {{time_of_fastest_score}}s
+
 </div>
 {% endblock content %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock scripts %}
 
