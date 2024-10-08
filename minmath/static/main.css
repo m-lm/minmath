@@ -267,6 +267,12 @@ button.acc-button {
     align-items: left;
 }
 
+#form-wrapper {
+    display: grid;
+    justify-content: center;
+    width: 25%;
+}
+
 .form-field {
     display: grid;
     padding: 8px;
@@ -275,6 +281,7 @@ button.acc-button {
 .field-wrapper {
     margin: 4px;
     padding: 4px;
+    text-align: center;
 }
 
 .custom-input {
@@ -388,6 +395,12 @@ li {
 
 li:hover {
     box-shadow: -2px 0px 0px 0px var(--accent);
+}
+
+.error-msg {
+    color: red;
+    opacity: .75;
+    justify-self: center;
 }
 
 ::placeholder {

@@ -11,7 +11,7 @@
     You are already logged in as {{user.username}}.
 </div>
 {% else %}
-<div>
+<div id = "form-wrapper">
     <strong>Register</strong>
     <form method = "POST" id = "login-form">
         {% csrf_token %}
@@ -31,6 +31,7 @@
         </div>
         <button type = "submit" class = "acc-button" tabindex = "1">Sign Up</button>
         <a class = "acc-button" href = "{% url 'account:login' %}" tabindex = "2">Login</a>
+        <span class = "error-msg">{{notes}}</span>
     </form>
 </div>
 {% endif %}

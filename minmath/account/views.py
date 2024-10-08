@@ -9,8 +9,17 @@ from django.db.models import Sum
 from solve.models import Minigame
 from django.db.models import F, FloatField
 from django.db.models.functions import Cast
+import string
 
 # Create your views here.
+
+def parse_errors(msg):
+    # Parse Django form error messages from form.errors and return array of errors
+    errors = []
+    for v in msg.values():
+        errors.append(v[0])
+    return errors
+
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
@@ -36,17 +45,22 @@ def logout_view(request):
     return redirect("/")
 
 def register(request):
+    notes = ""
     if request.method == "POST":
         form = Signup(request.POST) # user form inheritance
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect("/")
+        else:
+            notes = parse_errors(form.errors)
+            notes = " ".join(notes)
     else:
         form = Signup()
-    return render(request, "registration/register.html", {"form" : form})
+    return render(request, "registration/register.html", {"form": form, "notes": notes})
 
 def signin(request):
+    notes = ""
     if request.method == "POST":
         form = Signin(request, request.POST) # user form inheritance
         if form.is_valid():
@@ -56,7 +70,10 @@ def signin(request):
             if user is not None:
                 login(request, user)
                 return redirect("/")
+        else:
+            notes = parse_errors(form.errors)
+            notes = " ".join(notes)
     else:
         form = Signin()
-    return render(request, "registration/login.html", {"form" : form})
+    return render(request, "registration/login.html", {"form": form, "notes": notes})
  
