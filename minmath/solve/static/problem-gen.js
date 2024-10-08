@@ -43,6 +43,12 @@ function generateProblem() {
             }
             mathProblem = Math.max.apply(Math, nums) + symbols[chosenMode] + Math.min.apply(Math, nums);
             break;
+        case "mult":
+            // If mode is mult and both operands are at least double digits, reroll
+            while (nums[0].toString().length > 1 && nums[1].toString().length > 1) {
+                nums = generateNums();
+            }
+            // no break here to drop down to default case
         default:
             mathProblem = nums[0] + symbols[chosenMode] + nums[1];
     }
