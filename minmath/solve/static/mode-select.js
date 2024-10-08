@@ -76,8 +76,8 @@ function setDuration(id) {
     if (id == "timed") {
         dur.value = localStorage.getItem("duration");
         dur.style.pointerEvents = "inherit";
-        dur.style.appearance = "unset";
-        dur.style.boxShadow = "0px 2px 0px 0px var(--accent)";
+        dur.style.appearance = "auto";
+        // dur.style.boxShadow = "0px 2px 0px 0px var(--accent)";
     }
     else {
         dur.value = "inf";
