@@ -18,8 +18,10 @@ def results(request):
 def info(request):
     return render(request, "solve/info.html")
 
-@login_required
 def submit_score(request):
+    if not request.user.is_authenticated:
+        # Just redirect if user is not logged in
+        return redirect("solve:results")
     if request.method == "POST":
         form = MinigameForm(request.POST)
         if form.is_valid():
@@ -27,7 +29,7 @@ def submit_score(request):
             game.user = request.user
             game.save()
             print("SUCCESS:", game)
-            data = {"score": game.score}
+            data = {"score": f"Score: {game.score}"}
             return render(request, "solve/results.html", data)
     else:
         form = MinigameForm()
