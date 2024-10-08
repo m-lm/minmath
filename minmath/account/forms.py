@@ -17,6 +17,7 @@ class Signup(UserCreationForm):
             super().__init__(*args, **kwargs)
             for _, value in self.fields.items():
                 value.widget.attrs['placeholder'] = value.label
+                value.widget.attrs['autocomplete'] = "off"
                 if value.label == "Email":
                      value.widget.attrs['autofocus'] = ""
     class Meta:
@@ -28,4 +29,5 @@ class Signin(AuthenticationForm):
             super().__init__(*args, **kwargs)
             for _, value in self.fields.items():
                 value.widget.attrs['placeholder'] = value.label
+                value.widget.attrs['autocomplete'] = "off"
     

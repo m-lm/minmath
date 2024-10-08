@@ -376,10 +376,18 @@ button.acc-button {
 .rankings {
     margin: 8px;
     padding: 8px;
+    user-select: none;
 }
 
 li {
     list-style-type: none;
+    user-select: none;
+    padding: 4px;
+    transition: all .2s ease;
+}
+
+li:hover {
+    box-shadow: -2px 0px 0px 0px var(--accent);
 }
 
 ::placeholder {
