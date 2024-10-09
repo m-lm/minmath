@@ -106,13 +106,21 @@ function setPlaceholders() {
     }
 }
 
-function setRanges() {
+function storeRanges() {
     // Store ranges for problem generation during game
     let inputs = Array.from(document.getElementsByClassName("range"));
     // Account for NaN values, such as empty values
     let opBounds = inputs.map((e) => e.value != "" ? e.value : e.placeholder); // Array of strings
     opBounds = JSON.stringify(Array.from(opBounds));
     localStorage.setItem("bounds", opBounds)
+}
+
+function setBounds() {
+    let ranges = JSON.parse(localStorage.getItem("bounds"));
+    let inputs = document.getElementById("bounds").getElementsByTagName("input");
+    for (let i = 0; i < ranges.length; i++) {
+        inputs[i].value = ranges[i];
+    }
 }
 
 // If no modes has been previously set or mode has been reset by browser
@@ -129,6 +137,7 @@ if (localStorage.getItem("mode2") == null) {
 window.addEventListener("load", modeParse(localStorage.getItem("mode1")));
 window.addEventListener("load", modeParse(localStorage.getItem("mode2")));
 window.addEventListener("load", setPlaceholders);
+window.addEventListener("load", setBounds);
 
 // Store range inputs only on game start
-document.querySelector(".start-button").addEventListener("click", setRanges);
+document.querySelector(".start-button").addEventListener("click", storeRanges);
