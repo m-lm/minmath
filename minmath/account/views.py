@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.urls import reverse_lazy
@@ -19,7 +19,6 @@ def parse_errors(msg):
     for v in msg.values():
         errors.append(v[0])
     return errors
-
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
@@ -76,4 +75,12 @@ def signin(request):
     else:
         form = Signin()
     return render(request, "registration/login.html", {"form": form, "notes": notes})
- 
+
+def recent_games(request):
+    games = Minigame.objects.all()
+    data = {
+        "labels": [g.date.strftime("%m/%d") for g in games],
+        "scores": [g.score for g in games],
+        "times": [g.time_duration for g in games],
+    }
+    return JsonResponse(data)

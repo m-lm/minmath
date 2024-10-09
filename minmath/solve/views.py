@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseNotAllowed
+from django.http import JsonResponse, HttpResponse, HttpResponseNotAllowed
 from .models import Minigame
 from .forms import MinigameForm
 from django.contrib.auth.decorators import login_required
