@@ -7,7 +7,7 @@
 
 {% block content %}
 <div>
-    <h3>{{user.username}}'s Statistics</h3>
+    <h4>{{user.username}}'s Statistics</h4>
     <canvas id = "recent-games-plot" width = "600" height = "300"></canvas>
     <br>
     Games Played: {{total_games}}
@@ -17,7 +17,10 @@
     Highest Score: {{highest_score}} in {{time_of_highest_score}}s
     <br>
     Fastest Score: {{fastest_score}} in {{time_of_fastest_score}}s
-
+    <br>
+    Most Active Day: {{most_active_day}}
+    <br>
+    Most Active Month: {{most_active_month}}
 </div>
 {% endblock content %}
 

@@ -5,11 +5,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.urls import reverse_lazy
 from .forms import Signup, Signin
 from django.contrib.auth.decorators import login_required
-from django.db.models import Sum
+from django.db.models import Sum, Count, F, FloatField
+from django.db.models.functions import Cast, ExtractMonth, ExtractYear
 from solve.models import Minigame
-from django.db.models import F, FloatField
-from django.db.models.functions import Cast
 import string
+import datetime
 
 # Create your views here.
 
@@ -31,12 +31,18 @@ def profile(request):
     fastest_game = Minigame.objects.annotate(speed=Cast(F("score"), FloatField()) / Cast(F("time_duration"), FloatField())).order_by("-speed").first()
     fastest_score = fastest_game.score
     time_of_fastest_score = fastest_game.time_duration
+    dt_day = Minigame.objects.values("date").annotate(game_count=Count("id")).order_by("-game_count").first()["date"]
+    most_active_day = f"{dt_day.strftime('%A')[:3]}, {dt_day.strftime('%B')[:3]} {dt_day.strftime('%d')[1:]}, {dt_day.strftime('%Y')}"
+    dt_month = Minigame.objects.annotate(year=ExtractYear("date")).annotate(month=ExtractMonth("date")).values("date").annotate(game_count=Count("id")).order_by("-game_count").first()["date"]
+    most_active_month = f"{dt_month.strftime('%B')[:3]} {dt_month.strftime('%Y')}"
     data = {"total_games": total_games,
             "total_problems": total_problems, 
             "highest_score": highest_score,
             "time_of_highest_score": time_of_highest_score,
             "fastest_score": fastest_score,
-            "time_of_fastest_score": time_of_fastest_score,}
+            "time_of_fastest_score": time_of_fastest_score,
+            "most_active_day": most_active_day,
+            "most_active_month": most_active_month,}
     return render(request, "account/profile.html", data)
 
 def logout_view(request):
