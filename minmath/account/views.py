@@ -83,10 +83,11 @@ def signin(request):
     return render(request, "registration/login.html", {"form": form, "notes": notes})
 
 def recent_games(request):
-    games = Minigame.objects.all()
+    games = Minigame.objects.order_by("-date")[:10:-1]
     data = {
-        "labels": [g.date.strftime("%m/%d") for g in games][:10],
-        "scores": [g.score for g in games][:10],
-        "times": [g.time_duration for g in games][:10],
+        "labels": [g.date.strftime("%m/%d") for g in games],
+        "scores": [g.score for g in games],
+        "times": [g.time_duration for g in games],
     }
+    print(data["scores"])
     return JsonResponse(data)
