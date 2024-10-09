@@ -79,8 +79,8 @@ def signin(request):
 def recent_games(request):
     games = Minigame.objects.all()
     data = {
-        "labels": [g.date.strftime("%m/%d") for g in games],
-        "scores": [g.score for g in games],
-        "times": [g.time_duration for g in games],
+        "labels": [g.date.strftime("%m/%d") for g in games][:10],
+        "scores": [g.score for g in games][:10],
+        "times": [g.time_duration for g in games][:10],
     }
     return JsonResponse(data)

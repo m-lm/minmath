@@ -397,6 +397,10 @@ li:hover {
     box-shadow: -2px 0px 0px 0px var(--accent);
 }
 
+canvas {
+    user-select: none;
+}
+
 .error-msg {
     color: red;
     opacity: .75;

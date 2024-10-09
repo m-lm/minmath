@@ -5,9 +5,13 @@ async function fetchData() {
 }
 
 async function renderChart() {
+    const style = getComputedStyle(document.body);
+    const accentColor = style.getPropertyValue("--accent");
+    const textColor = style.getPropertyValue("--txt");
+    const sheetColor = style.getPropertyValue("--sheet");
     const { labels, scores, times } = await fetchData();
-    const ctx = document.getElementById("recent-games-plot").getContext("2d");
-    const gameChart = new Chart(ctx, {
+    const context = document.getElementById("recent-games-plot").getContext("2d");
+    const gameChart = new Chart(context, {
         type: "line",
         data: {
             labels: labels,
@@ -15,7 +19,7 @@ async function renderChart() {
                 label: "Score",
                 data: scores,
                 borderColor: "black",
-                backgroundColor: "white",
+                backgroundColor: accentColor,
                 pointRadius: 3,
                 datalabels: {
                     anchor: "end",
@@ -24,7 +28,7 @@ async function renderChart() {
                         const t = times[context.dataIndex];
                         return `${t}s`;
                     },
-                    color: "white",
+                    color: textColor,
                 },
             }]
         },
@@ -41,6 +45,22 @@ async function renderChart() {
             scales: {
                 y: {
                     beginAtZero: true,
+                    grid: {
+                        display: false,
+                        color: "gray",
+                    },
+                    ticks: {
+                        color: "gray",
+                    },
+                },
+                x: {
+                    grid: {
+                        display: false,
+                        color: "gray",
+                    },
+                    ticks: {
+                        color: "gray",
+                    },
                 }
             },
             plugins: {
