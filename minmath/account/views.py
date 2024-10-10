@@ -89,5 +89,4 @@ def recent_games(request):
         "scores": [g.score for g in games],
         "times": [g.time_duration for g in games],
     }
-    print(data["scores"])
     return JsonResponse(data)
