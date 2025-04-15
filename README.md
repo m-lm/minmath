@@ -1,1 +1,3 @@
-# minmath is a minimalist mental math website.
+# minmath
+
+A website dedicated to mental math exercises with a focus on minimalism.
