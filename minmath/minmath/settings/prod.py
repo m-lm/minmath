@@ -1,0 +1,29 @@
+# Production environment settings for DEPLOYMENT/PUBLIC
+# Import foundational settings from base
+from .base import *
+import os
+from dotenv import load_dotenv
+
+env_path = Path(__file__).resolve().parent.parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
+
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+# postgres production, railways
+DATABASES = {
+   'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv("NAME"),
+        'USER': os.getenv("USER"),
+        'PASSWORD': os.getenv("PASSWORD"),
+        'HOST': os.getenv("HOST"),
+        'PORT': os.getenv("PORT"),
+        "OPTIONS": {"sslmode": "require"},
+    }
+}
+print(DATABASES["default"])
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
