@@ -22,7 +22,6 @@ DATABASES = {
         "OPTIONS": {"sslmode": "require"},
     }
 }
-print(DATABASES["default"])
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 
