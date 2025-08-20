@@ -51,6 +51,7 @@ async function renderChart() {
                     },
                     ticks: {
                         color: "gray",
+                        precision: 0,
                     },
                 },
                 x: {

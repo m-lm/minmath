@@ -406,6 +406,7 @@ canvas {
 }
 
 .error-msg {
+    font-size: 14px;
     color: red;
     opacity: .75;
     justify-self: center;
