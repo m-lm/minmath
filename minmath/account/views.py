@@ -7,6 +7,7 @@ from .forms import Signup, Signin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum, Count, F, FloatField
 from django.db.models.functions import Cast, ExtractMonth, ExtractYear
+from django.utils import timezone
 from solve.models import Minigame
 import string
 import datetime
@@ -22,6 +23,7 @@ def parse_errors(msg):
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
+    # Return profile statistics
     total_games = Minigame.objects.count()
     total_problems = Minigame.objects.aggregate(total=Sum("score"))["total"]
     total_problems = 0 if None else total_problems
@@ -32,9 +34,11 @@ def profile(request):
     fastest_score = fastest_game.score
     time_of_fastest_score = fastest_game.time_duration
     dt_day = Minigame.objects.values("date").annotate(game_count=Count("id")).order_by("-game_count").first()["date"]
-    most_active_day = f"{dt_day.strftime('%A')[:3]}, {dt_day.strftime('%B')[:3]} {dt_day.strftime('%d')[1:]}, {dt_day.strftime('%Y')}"
+    most_active_day = f"{dt_day.strftime('%A')[:3]}, {dt_day.strftime('%B')[:3]} {dt_day.strftime('%d')}, {dt_day.strftime('%Y')}"
     dt_month = Minigame.objects.annotate(year=ExtractYear("date")).annotate(month=ExtractMonth("date")).values("date").annotate(game_count=Count("id")).order_by("-game_count").first()["date"]
     most_active_month = f"{dt_month.strftime('%B')[:3]} {dt_month.strftime('%Y')}"
+    last_game = Minigame.objects.latest("date")
+    last_active =  f"{last_game.date.strftime('%A')[:3]}, {last_game.date.strftime('%B')[:3]} {last_game.date.strftime('%-d')}, {last_game.date.strftime('%Y')}"
     data = {"total_games": total_games,
             "total_problems": total_problems, 
             "highest_score": highest_score,
@@ -42,7 +46,8 @@ def profile(request):
             "fastest_score": fastest_score,
             "time_of_fastest_score": time_of_fastest_score,
             "most_active_day": most_active_day,
-            "most_active_month": most_active_month,}
+            "most_active_month": most_active_month,
+            "last_active": last_active,}
     return render(request, "account/profile.html", data)
 
 def logout_view(request):
@@ -50,6 +55,7 @@ def logout_view(request):
     return redirect("/")
 
 def register(request):
+    # Register a new user
     notes = ""
     if request.method == "POST":
         form = Signup(request.POST) # user form inheritance
@@ -65,6 +71,7 @@ def register(request):
     return render(request, "registration/register.html", {"form": form, "notes": notes})
 
 def signin(request):
+    # Log in an existing user
     notes = ""
     if request.method == "POST":
         form = Signin(request, request.POST) # user form inheritance

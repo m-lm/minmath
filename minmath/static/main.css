@@ -401,6 +401,10 @@ canvas {
     user-select: none;
 }
 
+.unauth-score-msg {
+    font-size: 12px;
+}
+
 .error-msg {
     color: red;
     opacity: .75;

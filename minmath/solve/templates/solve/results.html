@@ -10,9 +10,9 @@
     <div id = "performance" class = "gameinfo">{{score}}</div>
     <!--
     {% if not user.is_authenticated %}
-        <span>Log in to save scores.</span>
+        <span class="unauth-score-msg">(log in to save)</span>
     {% endif %}
--->
+    -->
     <a id = "restart" class = "menu-button" aria-label = "retry" href = "{% url 'solve:game' %}">
         <img class = "icon" src = "{% static 'icons/restartalt.svg' %}">
     </a>
