@@ -59,12 +59,20 @@ ROOT_URLCONF = 'minmath.urls'
 # STATICFILES_DIRS manually added - analogous purpose to DIRS key in TEMPLATES
 STATICFILES_DIRS = ["static"]
 
+TEMPLATE_DIR = BASE_DIR / "templates"
+
+if not TEMPLATE_DIR.exists():
+    TEMPLATE_DIR = BASE_DIR.parent / "templates"
+
+if not TEMPLATE_DIR.exists():
+    TEMPLATE_DIR = Path("templates")
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # DIRS key empty by default - specify root templates dir so that all apps can access
         # note: DIRS looks from root project name, so BASE_DIR not necessary if templates dir is level with apps
-        'DIRS': ["templates"],
+        'DIRS': [str(TEMPLATE_DIR)],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
