@@ -5,12 +5,12 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.urls import reverse_lazy
 from .forms import Signup, Signin
 from django.contrib.auth.decorators import login_required
-from django.db.models import Sum, Count, F, FloatField
+from django.db.models import Sum, Count, Max, F, FloatField
 from django.db.models.functions import Cast, ExtractMonth, ExtractYear
 from django.utils import timezone
 from solve.models import Minigame
 import string
-import datetime
+from datetime import datetime
 
 # Create your views here.
 
@@ -23,23 +23,39 @@ def parse_errors(msg):
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
-    # Return profile statistics
+    # Return personal profile statistics
     minigames = Minigame.objects.filter(user=request.user)
+
+    # Pre-aggregate stats
+    aggregates = minigames.aggregate(
+        total_problems=Sum("score"),
+        highest_score=Max("score"),
+        last_active=Max("date")
+    )
+
+    # Game totals
     total_games = minigames.count()
-    total_problems = minigames.aggregate(total=Sum("score"))["total"]
-    total_problems = 0 if None else total_problems
+    total_problems = aggregates["total_problems"] or 0
+
+    # Highest-scoring games
     highest_game = minigames.order_by("-score").first() 
-    highest_score = highest_game.score if highest_game else 0
+    highest_score = aggregates["highest_score"] or 0
     time_of_highest_score = highest_game.time_duration if highest_game else 0
+
+    # Fastest games by solve speed
     fastest_game = minigames.annotate(speed=Cast(F("score"), FloatField()) / Cast(F("time_duration"), FloatField())).order_by("-speed").first()
     fastest_score = fastest_game.score if fastest_game else 0
     time_of_fastest_score = fastest_game.time_duration if fastest_game else 0
+
+    # Activity dates
     dt_day = minigames.values("date").annotate(game_count=Count("id")).order_by("-game_count").first()
-    most_active_day = f"{dt_day['date'].strftime('%A')[:3]}, {dt_day['date'].strftime('%B')[:3]} {dt_day['date'].strftime('%d')}, {dt_day['date'].strftime('%Y')}" if dt_day else "N/A"
-    dt_month = minigames.annotate(year=ExtractYear("date")).annotate(month=ExtractMonth("date")).values("date").annotate(game_count=Count("id")).order_by("-game_count").first()
-    most_active_month = f"{dt_month['date'].strftime('%B')[:3]} {dt_month['date'].strftime('%Y')}" if dt_month else "N/A"
+    most_active_day = dt_day["date"].strftime("%a, %b %d, %Y") if dt_day else "N/A"
+    dt_month = minigames.annotate(year=ExtractYear("date"), month=ExtractMonth("date")).values("year", "month").annotate(game_count=Count("id")).order_by("-game_count").first()
+    most_active_month = datetime(year=dt_month["year"], month=dt_month["month"], day=1).strftime("%b %Y") if dt_month else "N/A"
     last_game = minigames.order_by("-date").first()
-    last_active =  f"{last_game.date.strftime('%A')[:3]}, {last_game.date.strftime('%B')[:3]} {last_game.date.strftime('%-d')}, {last_game.date.strftime('%Y')}" if last_game else "N/A"
+    last_active = last_game.date.strftime("%a, %b %-d, %Y") if last_game else "N/A"
+
+    # Data context
     data = {"total_games": total_games,
             "total_problems": total_problems, 
             "highest_score": highest_score,
@@ -49,6 +65,7 @@ def profile(request):
             "most_active_day": most_active_day,
             "most_active_month": most_active_month,
             "last_active": last_active,}
+
     return render(request, "account/profile.html", data)
 
 def logout_view(request):
