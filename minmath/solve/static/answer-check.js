@@ -7,23 +7,26 @@ function getSoln() {
     let components = document.getElementById("math").textContent.split(/\s+/); // regex split whitespace for numbers
     let operation = components[1]; // operation sign
     let ans = parseInt(components[0]); // first number
+    let secondNum = parseInt(components[2]); // second number
+
     // Operate on second number accordingly
     switch (operation) {
         case "+":
-            ans += parseInt(components[2]);
+            ans += secondNum;
             break;
         case "-":
-            ans -= parseInt(components[2]);
+            ans -= secondNum;
             break;
         case "x":
-            ans *= parseInt(components[2]);
+            ans *= secondNum;
             break;
         case "÷":
-            ans /= parseInt(components[2]);
+            ans /= secondNum;
             break;
         default:
             console.log("switch error");
     }
+
     return ans;
 }
 
